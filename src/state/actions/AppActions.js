@@ -4,14 +4,17 @@ export const AppActionsType = {
   SET_FIRSTLOAD_APP: "[APP GENERAL - SET_FIRSTLOAD_APP]",
 };
 
-export const SET_MENU = () => ({
+export const SET_MENU = (menu) => ({
   type: AppActionsType.SET_MENU,
+  payload: menu,
 });
 
-export const SET_TOKEN = () => ({
+export const SET_TOKEN = (token) => ({
   type: AppActionsType.SET_TOKEN,
+  payload: token,
 });
 
-export const SET_FIRSTLOAD_APP = () => ({
+export const SET_FIRSTLOAD_APP = (isFIrstLoad) => ({
   type: AppActionsType.SET_FIRSTLOAD_APP,
+  payload: isFIrstLoad,
 });

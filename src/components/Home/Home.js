@@ -2,6 +2,8 @@ import React from "react";
 import classNames from "classnames";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Route } from "react-router-dom";
+import Products from "./../Products";
 
 const Home = () => {
   const isBasketOpened = false;
@@ -15,7 +17,7 @@ const Home = () => {
             "basket-opened": isBasketOpened,
           })}
         >
-          home
+          <Route path="/products" component={Products} />
         </main>
       </div>
       <Footer />

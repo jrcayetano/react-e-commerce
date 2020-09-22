@@ -1,11 +1,30 @@
 import React, { useState } from "react";
 import brand from "./../../assets/images/brand.svg";
+import LoggedUser from "./LoggedUser";
+import Basket from "./Basket";
+import {
+  USER_PATH,
+  EDIT_PROFILE_PATH,
+  USER_ORDERS_PATH,
+  USER_FAVORITE_PRODUCTS_PATH,
+  PRODUCTS_PATH,
+  OFFERS_PATH,
+} from "./../../consts/paths";
+import { Link } from "react-router-dom";
+import classnames from "classnames";
+import { connect, useDispatch } from "react-redux";
+import { MenuEnum } from "./../../consts/MenuEnum";
+import { SET_MENU } from "./../../state/actions/AppActions";
 
-const Header = () => {
+const Header = ({ selectedMenu }) => {
   const [isMenuCollapse, setIsMenuCollapse] = useState(true);
+  const dispatch = useDispatch();
 
-  const handleOnSelectMenu = () => {};
   const handleMenuCollapse = () => setIsMenuCollapse(!isMenuCollapse);
+  const handleOnSelectMenu = (menu) => {
+    dispatch(SET_MENU(menu));
+    handleMenuCollapse();
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,7 +42,9 @@ const Header = () => {
         E-commerce
       </a>
       <div className="header__action-bar">
-        {/* <app-basket className="d-block d-lg-none"></app-basket> */}
+        <span className="d-block d-lg-none">
+          <Basket />
+        </span>
 
         <button
           className="custom-toggler navbar-toggler"
@@ -44,38 +65,61 @@ const Header = () => {
       >
         <h4 className="d-block d-lg-none">Mi perfil</h4>
         <ul className="navbar-nav d-block d-lg-none">
-          <li className="nav-item">
-            <a className="nav-link" onClick={handleMenuCollapse}>
+          <li className="nav-item" onClick={handleMenuCollapse}>
+            <Link to={`${USER_PATH}/${EDIT_PROFILE_PATH}`} className="nav-link">
               Editar perfil
-            </a>
+            </Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" onClick={handleMenuCollapse}>
-              Pedidos
-            </a>
+          <li className="nav-item" onClick={handleMenuCollapse}>
+            <Link to={`/${USER_PATH}/${USER_ORDERS_PATH}`} className="nav-link">
+              Pedidos realziados
+            </Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" onClick={handleMenuCollapse}>
-              Productos Favoritos
-            </a>
+          <li className="nav-item" onClick={handleMenuCollapse}>
+            <Link
+              to={`/${USER_PATH}/${USER_FAVORITE_PRODUCTS_PATH}`}
+              className="nav-link"
+            >
+              Productos favoritos
+            </Link>
           </li>
         </ul>
         <h4 className="d-block d-lg-none">Tienda</h4>
         <ul className="navbar-nav">
-          <li className="nav-item" onClick={handleOnSelectMenu}>
-            <a className="nav-link" onClick={handleMenuCollapse}>
+          <li
+            className={classnames({
+              "nav-item": true,
+              active: selectedMenu === MenuEnum.Products ? true : false,
+            })}
+            onClick={() => handleOnSelectMenu(MenuEnum.Products)}
+          >
+            <Link to={`/${PRODUCTS_PATH}`} className="nav-link">
               Productos
-            </a>
+            </Link>
           </li>
-          <li className="nav-item" onClick={handleOnSelectMenu}>
-            <a className="nav-link" onClick={handleMenuCollapse}>
+          <li
+            className={classnames({
+              "nav-item": true,
+              active: selectedMenu === MenuEnum.Offers ? true : false,
+            })}
+            onClick={() => handleOnSelectMenu(MenuEnum.Offers)}
+          >
+            <Link to={`/${OFFERS_PATH}`} className="nav-link">
               Ofertas
-            </a>
+            </Link>
           </li>
         </ul>
+      </div>
+      <div class="header__right-part d-none d-lg-block">
+        <LoggedUser />
+        <Basket />
       </div>
     </nav>
   );
 };
 
-export default React.memo(Header);
+const mapStateToProps = (state) => ({
+  selectedMenu: state.app.selectedMenu,
+});
+
+export default connect(mapStateToProps)(React.memo(Header));

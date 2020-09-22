@@ -1,5 +1,19 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "user1@email.com",
+      "password": "$2a$10$jtqqTbrf2866FNj2jxMBZuIgUifcfqm6JTj722m/cMG6zJ/DIkW1q",
+      "username": "user1",
+      "name": "user1_name",
+      "surname": "user1_surname",
+      "address": "user1_street",
+      "city": "user1_city",
+      "state": "Albacete",
+      "zip": "41325",
+      "repassword": "Puerta164ever!",
+      "id": 1
+    }
+  ],
   "products": [
     {
       "id": 1,
