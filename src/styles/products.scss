@@ -1,0 +1,17 @@
+.products {
+  padding-bottom: 2rem;
+  display: block;
+}
+
+.banner {
+  padding: 1rem 0;
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.products-main {
+  display: grid;
+  grid-template-columns: 15% 75%;
+}

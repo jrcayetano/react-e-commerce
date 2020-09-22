@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  DeleteProduct,
+  IncremenProductQuantity,
+} from "./../../state/actions/BasketActions";
+
+const BasketListProducts = ({ product }) => {
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
+  const quantitiesOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const handleOndDeleteClick = () => {
+    dispatch(DeleteProduct(product.id));
+    console.log("Delete product", product);
+  };
+
+  const handletChangeQuantity = (quantity) => {
+    dispatch(
+      IncremenProductQuantity({
+        productId: product.id,
+        quantity: parseInt(quantity),
+      })
+    );
+    console.log("increment quantity", quantity);
+  };
+
+  return (
+    <>
+      <div className="basket-list__products__item">
+        <div className="basket-list__products__image">
+          <img src={product.image} alt="product_Image" />
+        </div>
+      </div>
+      <div className="basket-list__products__info">
+        <div className="basket-list__products__info__name">{product.name}</div>
+        <div className="basket-list__products__info__price">
+          EUR {product.isOffer ? product.priceOffer : product.price}
+        </div>
+      </div>
+      <div class="basket-list__products__actions">
+        <form class="basket-list__products__actions__quantity">
+          <label className="" for="quantityInput">
+            Cant:{" "}
+          </label>
+          <select
+            className=""
+            id="quantityInput"
+            onChange={(event) => {
+              handletChangeQuantity(event.target.value);
+            }}
+          >
+            {quantitiesOptions.map((quantity) => (
+              <option value="quantity">{quantity}</option>
+            ))}
+          </select>
+        </form>
+        <button class="btn btn-light" onClick={handleOndDeleteClick}>
+          Eliminar
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default React.memo(BasketListProducts);

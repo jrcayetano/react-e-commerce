@@ -9,14 +9,14 @@
   // padding-bottom: 2rem;
   &.basket-opened {
     display: grid;
-    grid-template-columns: 0% auto 20%;
+    grid-template-columns: auto 20%;
   }
 }
 
 @media (max-width: 992px) {
   .main-content {
     &.basket-opened {
-      grid-template-columns: 0% auto 30%;
+      grid-template-columns: auto 30%;
     }
   }
 }
