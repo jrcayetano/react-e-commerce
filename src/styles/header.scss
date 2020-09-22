@@ -1,0 +1,22 @@
+.header__right-part {
+  position: relative;
+  right: 100px;
+}
+
+app-logged-user {
+  margin-right: 20px;
+}
+
+li {
+  &.active {
+    border-bottom: 1px solid gray;
+  }
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.header__action-bar {
+  display: flex;
+}
