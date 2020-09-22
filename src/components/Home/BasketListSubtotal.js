@@ -4,7 +4,7 @@ const BasketListSubtotal = ({ subtotal, onBuy }) => {
   return (
     <div className="basket-list__total">
       <span className="basket-list__total__price">
-        Subotal:
+        Subtotal:
         <span className="quantity">EUR {subtotal} €</span>
       </span>
       <button

@@ -1,20 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import http from "axios";
+import { SERVER_URL, API_PRODUCTS } from "./../../consts/api";
+import ProductCard from "./ProductCard";
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    http
+      .get(`${SERVER_URL}/${API_PRODUCTS}`)
+      .then((response) => setProducts(response.data));
+  }, []);
+
   return (
-    <div class="products">
-      <div class="banner">
-        <img
-          class="img-fluid"
-          src="https://images-eu.ssl-images-amazon.com/images/G/30/gaming2020/trafficdrivers/ILM/ILM_650_x_45._CB428851601_.jpg"
-        />
+    <>
+      <div className="products">
+        <div className="banner">
+          <img
+            className="img-fluid"
+            src="https://images-eu.ssl-images-amazon.com/images/G/30/gaming2020/trafficdrivers/ILM/ILM_650_x_45._CB428851601_.jpg"
+          />
+        </div>
+        <div className="products-main">
+          <div className="votaciones"></div>
+          <div className="products">
+            <div className="products__list">
+              {products.map((product, index) => (
+                <ProductCard
+                  product={product}
+                  key={`product_${index}`}
+                  className="test"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="products-main"></div>
-    </div>
+    </>
   );
 };
 
-export default Products;
+export default React.memo(Products);
 
 /*
 <div class="banner">

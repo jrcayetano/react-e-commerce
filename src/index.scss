@@ -4,9 +4,13 @@
 @import "./styles/home.scss";
 @import "./styles/header.scss";
 @import "./styles/logged-user.scss";
-@import "./styles/products.scss";
+
 @import "./styles/basket-list.scss";
 @import "./styles/basket-list-subtotal.scss";
+// Products module
+@import "./styles/products.scss";
+@import "./styles/products-card.scss";
+// Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
 body {
