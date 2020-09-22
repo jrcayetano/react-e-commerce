@@ -60,15 +60,15 @@ const Header = () => {
             </a>
           </li>
         </ul>
-        <h4 class="d-block d-lg-none">Tienda</h4>
-        <ul class="navbar-nav">
-          <li class="nav-item" onclick={handleOnSelectMenu}>
-            <a class="nav-link" onclick={handleMenuCollapse}>
+        <h4 className="d-block d-lg-none">Tienda</h4>
+        <ul className="navbar-nav">
+          <li className="nav-item" onClick={handleOnSelectMenu}>
+            <a className="nav-link" onClick={handleMenuCollapse}>
               Productos
             </a>
           </li>
-          <li class="nav-item" onClick={handleOnSelectMenu}>
-            <a class="nav-link" onClick={handleMenuCollapse}>
+          <li className="nav-item" onClick={handleOnSelectMenu}>
+            <a className="nav-link" onClick={handleMenuCollapse}>
               Ofertas
             </a>
           </li>

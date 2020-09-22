@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "json-server": "^0.16.1",
-    "json-server-auth": "^2.0.2"
+    "json-server-auth": "^2.0.2",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
