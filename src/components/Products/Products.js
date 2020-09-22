@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import http from "axios";
 import { SERVER_URL, API_PRODUCTS } from "./../../consts/api";
 import ProductCard from "./ProductCard";
+import ProductFilter from "./ProductFilter";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const Products = () => {
           />
         </div>
         <div className="products-main">
-          <div className="votaciones"></div>
+          <ProductFilter />
           <div className="products">
             <div className="products__list">
               {products.map((product, index) => (
