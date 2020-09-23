@@ -110,7 +110,7 @@ const Header = ({ selectedMenu }) => {
           </li>
         </ul>
       </div>
-      <div class="header__right-part d-none d-lg-block">
+      <div className="header__right-part d-none d-lg-block">
         <LoggedUser />
         <Basket />
       </div>

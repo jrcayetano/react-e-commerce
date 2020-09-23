@@ -8,11 +8,6 @@ footer {
   display: flex;
   align-items: center;
 
-  /*   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%; */
-
   ul {
     list-style: none;
     display: flex;
@@ -24,9 +19,8 @@ footer {
 }
 .footer-wrap {
   display: flex;
-  // flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   margin-top: 1rem;
   border-top: 1px solid;
   padding-top: 1rem;
@@ -43,7 +37,6 @@ footer {
   color: $color-footer-links;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   margin: 0 auto;
 }
 .footer__contact {

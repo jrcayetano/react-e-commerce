@@ -4,9 +4,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Route } from "react-router-dom";
 import Products from "./../Products";
+import BasketList from "./BasketList";
+import { connect, useDispatch } from "react-redux";
+import ProductDetail from "./../Products/ProductDetail";
 
-const Home = () => {
-  const isBasketOpened = false;
+const Home = ({ isBasketOpened }) => {
   return (
     <React.Fragment>
       <Header />
@@ -17,7 +19,11 @@ const Home = () => {
             "basket-opened": isBasketOpened,
           })}
         >
-          <Route path="/products" component={Products} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/offers" component={Products} />
+          <Route exact path="/products/:id" component={ProductDetail} />
+          <Route exact path="/offers/:id" component={ProductDetail} />
+          {isBasketOpened && <BasketList />}
         </main>
       </div>
       <Footer />
@@ -25,4 +31,8 @@ const Home = () => {
   );
 };
 
-export default React.memo(Home);
+const mapStateToProps = (state) => ({
+  isBasketOpened: state.basket.opened,
+});
+
+export default connect(mapStateToProps)(React.memo(Home));

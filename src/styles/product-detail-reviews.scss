@@ -1,0 +1,36 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+.product-detail-review {
+  margin-bottom: 1rem;
+}
+.product-detail-review__user-information {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.product-detail-review__user-information__image {
+  width: 40px;
+  margin-right: 1rem;
+}
+
+.product-detail-review__user-information__name,
+.product-detail-review__rating__title,
+.product-detail-review__rating__date,
+.product-detail-review__rating__description {
+  font-size: 13px;
+}
+
+.product-detail-review__rating__title {
+  .rating-star {
+    color: $color-star;
+    margin-right: 1rem;
+  }
+  span {
+    font-weight: $font-bold;
+  }
+}
+.product-detail-review__rating__date {
+  color: $color-review-date;
+  margin-bottom: 0.5rem;
+}

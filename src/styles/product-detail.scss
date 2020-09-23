@@ -1,0 +1,61 @@
+@import "./colors.scss";
+.product-detail-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.title-page {
+  margin-bottom: 2rem;
+}
+
+.detail-section {
+  display: flex;
+}
+.action-section {
+  padding: 0 1rem 1rem 1rem;
+  width: 35%;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+.action-section__buy {
+  margin-bottom: 1rem;
+}
+
+.detail-section__reviews {
+  border-top: 1px solid $color-border;
+  margin-top: 2rem;
+  h5 {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .action-section {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-section {
+    flex-direction: column;
+  }
+  .action-section {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.header__action-bar {
+  app-basket {
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .action-section {
+    flex-direction: column;
+  }
+}

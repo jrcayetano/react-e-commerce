@@ -7,3 +7,6 @@ export const API_PROFILE = "userprofile";
 export const API_PROFILE_EDIT = "userprofileedit";
 export const API_USER_ORDERS = "userorders";
 export const API_FAVORITE_PRODUCTS = "userfavorites";
+
+const SERVER_PORT = "3001";
+export const SERVER_URL = `http://localhost:${SERVER_PORT}`;
