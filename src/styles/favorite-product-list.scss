@@ -1,0 +1,65 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+.favorite-list {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+.favorite-list__groups,
+.favorite-list__groups__element {
+  display: flex;
+}
+
+.favorite-list__groups {
+  flex-direction: column;
+}
+
+.favorite-list__groups__element {
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorite-list__groups__element {
+  &.selected {
+    .favorite-list__groups__element__name {
+      font-weight: $font-bold;
+    }
+  }
+}
+
+.favorite-list__groups__element__name {
+  font-size: 14px;
+}
+
+.favorite-list__groups__element__scope {
+  font-size: 11px;
+  font-weight: $font-medium;
+}
+
+@media (max-width: 992px) {
+  .favorite-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .favorite-list__groups {
+    flex-direction: row;
+    border-bottom: 1px solid $color-border-2;
+    margin-bottom: 0.5rem;
+  }
+  .favorite-list__table {
+    border-left: none;
+  }
+  .favorite-list__groups__element {
+    flex-direction: column;
+    &:not(:first-child) {
+      border-left: 1px solid $color-border-2;
+    }
+  }
+}
+
+app-favorite-product {
+  &:not(:first-child) {
+    border-top: 1px solid $color-border-2;
+  }
+}

@@ -8,6 +8,7 @@ import BasketList from "./BasketList";
 import { connect } from "react-redux";
 import ProductDetail from "./../Products/ProductDetail";
 import UserOrders from "./../User/UserOrders";
+import UserFavoriteProduct from "./../User/UserFavoriteProduct";
 
 const Home = ({ isBasketOpened }) => {
   return (
@@ -25,6 +26,7 @@ const Home = ({ isBasketOpened }) => {
           <Route exact path="/products/:id" component={ProductDetail} />
           <Route exact path="/offers/:id" component={ProductDetail} />
           <Route path="/user/orders" component={UserOrders} />
+          <Route path="/user/favorite" component={UserFavoriteProduct} />
           {isBasketOpened && <BasketList />}
         </main>
       </div>
