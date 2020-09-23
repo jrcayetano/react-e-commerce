@@ -10,13 +10,13 @@ export const initialState = {
 
 export default function userLoggedReducer(state = initialState, action) {
   switch (action.type) {
-    case UserLoggedActionsType.SET_IS_LOGGED: {
+    case UserLoggedActionsType.setIsLogged: {
       return {
         ...state,
         isLogged: true,
       };
     }
-    case UserLoggedActionsType.ADD_FAVORITE_PRODUCT: {
+    case UserLoggedActionsType.addFavoriteProduct: {
       return {
         ...state,
         favoriteProducts: [
@@ -28,13 +28,13 @@ export default function userLoggedReducer(state = initialState, action) {
         ],
       };
     }
-    case UserLoggedActionsType.ADD_FAVORITE_PRODUCT_IN_BULK: {
+    case UserLoggedActionsType.addFavoriteProductInBulk: {
       return {
         ...state,
         favoriteProducts: [...state.favoriteProducts, ...action.payload],
       };
     }
-    case UserLoggedActionsType.DELETE_FAVORITE_PRODUCT: {
+    case UserLoggedActionsType.deleteFavoriteProduct: {
       return {
         ...state,
         favoriteProducts: state.favoriteProducts.filter(
@@ -42,26 +42,26 @@ export default function userLoggedReducer(state = initialState, action) {
         ),
       };
     }
-    case UserLoggedActionsType.SET_USERNAME: {
+    case UserLoggedActionsType.setUsername: {
       return {
         ...state,
         username: action.payload,
       };
     }
-    case UserLoggedActionsType.SET_EMAIL: {
+    case UserLoggedActionsType.setEmail: {
       return {
         ...state,
         email: action.payload,
       };
     }
 
-    case UserLoggedActionsType.SET_PROFILE: {
+    case UserLoggedActionsType.setProfile: {
       return {
         ...state,
         profile: action.payload,
       };
     }
-    case UserLoggedActionsType.ADD_ORDER: {
+    case UserLoggedActionsType.addOrder: {
       return {
         ...state,
         orders: [...state.orders, { ...action.payload }],

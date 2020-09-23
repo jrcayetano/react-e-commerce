@@ -1,5 +1,7 @@
+// General
 @import "./styles/colors.scss";
 @import "./styles/fonts.scss";
+// Home
 @import "./styles/footer.scss";
 @import "./styles/home.scss";
 @import "./styles/header.scss";
@@ -13,7 +15,10 @@
 @import "./styles/products-card.scss";
 @import "./styles/products-filter.scss";
 @import "./styles/product-offer-card.scss";
-
+// Product detail
+@import "./styles/product-detail.scss";
+@import "./styles/product-detail-information.scss";
+@import "./styles/product-detail-reviews.scss";
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 

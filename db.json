@@ -37,7 +37,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -47,7 +47,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -85,7 +85,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -95,7 +95,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -133,7 +133,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -143,7 +143,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -181,7 +181,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -191,7 +191,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -229,7 +229,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -239,7 +239,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -277,7 +277,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -287,7 +287,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -325,7 +325,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -335,7 +335,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -373,7 +373,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -383,7 +383,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -421,7 +421,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -431,7 +431,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -469,7 +469,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -479,7 +479,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -518,7 +518,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -528,7 +528,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -567,7 +567,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -577,7 +577,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,
@@ -616,7 +616,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -626,7 +626,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -665,7 +665,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 3"
           },
           "rating": 2,
@@ -675,7 +675,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 5"
           },
           "rating": 2,
@@ -714,7 +714,7 @@
       "reviews": [
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 1"
           },
           "rating": 5,
@@ -724,7 +724,7 @@
         },
         {
           "user": {
-            "image": "./assets/images/default_user.png",
+            "image": "default_user.png",
             "name": "user 2"
           },
           "rating": 3,

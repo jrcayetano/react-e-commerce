@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import Products from "./../Products";
 import BasketList from "./BasketList";
 import { connect, useDispatch } from "react-redux";
+import ProductDetail from "./../Products/ProductDetail";
 
 const Home = ({ isBasketOpened }) => {
   return (
@@ -18,8 +19,10 @@ const Home = ({ isBasketOpened }) => {
             "basket-opened": isBasketOpened,
           })}
         >
-          <Route path="/products" component={Products} />
-          <Route path="/offers" component={Products} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/offers" component={Products} />
+          <Route exact path="/products/:id" component={ProductDetail} />
+          <Route exact path="/offers/:id" component={ProductDetail} />
           {isBasketOpened && <BasketList />}
         </main>
       </div>

@@ -1,12 +1,12 @@
 export const UserLoggedActionsType = {
-  SET_IS_LOGGED: "[User logged - SET_IS_LOGGED]",
-  SET_USERNAME: "[User logged - SET_USERNAME]",
-  SET_EMAIL: "[User logged - SET_EMAIL]",
-  SET_PROFILE: "[User logged - SET_PROFILE]",
-  ADD_FAVORITE_PRODUCT: "[User logged - ADD_FAVORITE_PRODUCT]",
-  ADD_FAVORITE_PRODUCT_IN_BULK: "[User logged - ADD_FAVORITE_PRODUCT_IN_BULK]",
-  DELETE_FAVORITE_PRODUCT: "[User logged - DELETE_FAVORITE_PRODUCT]",
-  ADD_ORDER: "[User logged - ADD_ORDER]",
+  setIsLogged: "[User logged - SET_IS_LOGGED]",
+  setUsername: "[User logged - SET_USERNAME]",
+  setEmail: "[User logged - SET_EMAIL]",
+  setProfile: "[User logged - SET_PROFILE]",
+  addFavoriteProduct: "[User logged - ADD_FAVORITE_PRODUCT]",
+  addFavoriteProductInBulk: "[User logged - ADD_FAVORITE_PRODUCT_IN_BULK]",
+  deleteFavoriteProduct: "[User logged - DELETE_FAVORITE_PRODUCT]",
+  addOrder: "[User logged - ADD_ORDER]",
 };
 
 export const SetIsLogged = () => ({

@@ -1,0 +1,56 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+.product-detail-information {
+  display: flex;
+}
+.product-detail-information__data {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.product-detail-information__data__rating {
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid $color-border;
+}
+
+.product-detail-information____data__name {
+  font-size: 19px;
+  font-weight: $font-medium;
+}
+
+.product-detail-information__data__rating {
+  color: $color-star;
+  font-size: 13px;
+}
+
+.product-detail-information__extra-info {
+  font-size: 13px;
+}
+
+.product-detail-information__data__rating__stars {
+  margin-right: 1rem;
+}
+
+.product-detail-information__image {
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-detail-information {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail-information__image {
+    img {
+      width: 230px;
+    }
+  }
+}

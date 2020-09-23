@@ -15,7 +15,6 @@ const Products = ({ isOffer, basketProductsList }) => {
   const [products, setProducts] = useState([]);
 
   const handleFilterChange = (filter) => {
-    console.log(filter);
     getProductList(filter, isOffer).then((response) =>
       setProducts(response.data)
     );

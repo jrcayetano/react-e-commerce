@@ -12,6 +12,10 @@ export const getProductList = (filter, isOffer) => {
   }
 };
 
+export const getById = (productId) => {
+  return http.get(`${url}/${productId}`);
+};
+
 const generateFilterSearch = (
   { searchTerm, rating = "1", min = "0", max, player, mouse, light, clock },
   isOffer = false
