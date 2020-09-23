@@ -30,16 +30,19 @@ const BasketListProducts = ({ product }) => {
         <div className="basket-list__products__image">
           <img src={product.image} alt="product_Image" />
         </div>
-      </div>
-      <div className="basket-list__products__info">
-        <div className="basket-list__products__info__name">{product.name}</div>
-        <div className="basket-list__products__info__price">
-          EUR {product.isOffer ? product.priceOffer : product.price}
+        <div className="basket-list__products__info">
+          <div className="basket-list__products__info__name">
+            {product.name}
+          </div>
+          <div className="basket-list__products__info__price">
+            EUR {product.isOffer ? product.priceOffer : product.price}
+          </div>
         </div>
       </div>
-      <div class="basket-list__products__actions">
-        <form class="basket-list__products__actions__quantity">
-          <label className="" for="quantityInput">
+
+      <div className="basket-list__products__actions">
+        <form className="basket-list__products__actions__quantity">
+          <label className="" htmlFor="quantityInput">
             Cant:{" "}
           </label>
           <select
@@ -49,12 +52,14 @@ const BasketListProducts = ({ product }) => {
               handletChangeQuantity(event.target.value);
             }}
           >
-            {quantitiesOptions.map((quantity) => (
-              <option value="quantity">{quantity}</option>
+            {quantitiesOptions.map((quantity, index) => (
+              <option value="quantity" key={`product_${index}`}>
+                {quantity}
+              </option>
             ))}
           </select>
         </form>
-        <button class="btn btn-light" onClick={handleOndDeleteClick}>
+        <button className="btn btn-light" onClick={handleOndDeleteClick}>
           Eliminar
         </button>
       </div>

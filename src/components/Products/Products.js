@@ -1,18 +1,25 @@
-import React, { useEffect, useState } from "react";
-import http from "axios";
-import { SERVER_URL, API_PRODUCTS } from "./../../consts/api";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
+import ProductOfferCard from "./ProductOfferCard";
 import ProductFilter from "./ProductFilter";
 import { getProductList } from "./../../services/Product.service";
+import { MenuEnum } from "./../../consts/MenuEnum";
+import { connect, useDispatch } from "react-redux";
+import { AddProduct } from "./../../state/actions/BasketActions";
 
-const Products = () => {
+const Products = ({ isOffer }) => {
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
 
   const handleFilterChange = (filter) => {
     console.log(filter);
-    getProductList(filter, false).then((response) =>
+    getProductList(filter, isOffer).then((response) =>
       setProducts(response.data)
     );
+  };
+
+  const handleAddToBasket = (product) => {
+    dispatch(AddProduct(product));
   };
 
   return (
@@ -28,13 +35,18 @@ const Products = () => {
           <ProductFilter onFilterChange={handleFilterChange} />
           <div className="products">
             <div className="products__list">
-              {products.map((product, index) => (
-                <ProductCard
-                  product={product}
-                  key={`product_${index}`}
-                  className="test"
-                />
-              ))}
+              {!isOffer &&
+                products.map((product, index) => (
+                  <ProductCard product={product} key={`product_${index}`} />
+                ))}
+              {isOffer &&
+                products.map((product, index) => (
+                  <ProductOfferCard
+                    product={product}
+                    onAddToBasket={handleAddToBasket}
+                    key={`product_${index}`}
+                  />
+                ))}
             </div>
           </div>
         </div>
@@ -43,4 +55,8 @@ const Products = () => {
   );
 };
 
-export default React.memo(Products);
+const mapStateToProps = (state) => ({
+  isOffer: state.app.selectedMenu === MenuEnum.Offers ? true : false,
+});
+
+export default connect(mapStateToProps)(React.memo(Products));

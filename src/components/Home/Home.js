@@ -19,6 +19,7 @@ const Home = ({ isBasketOpened }) => {
           })}
         >
           <Route path="/products" component={Products} />
+          <Route path="/offers" component={Products} />
           {isBasketOpened && <BasketList />}
         </main>
       </div>

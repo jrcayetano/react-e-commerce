@@ -4,13 +4,16 @@
 @import "./styles/home.scss";
 @import "./styles/header.scss";
 @import "./styles/logged-user.scss";
-
+// Basket lateral
 @import "./styles/basket-list.scss";
 @import "./styles/basket-list-subtotal.scss";
+@import "./styles/basket-list-products.scss";
 // Products module
 @import "./styles/products.scss";
 @import "./styles/products-card.scss";
 @import "./styles/products-filter.scss";
+@import "./styles/product-offer-card.scss";
+
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
