@@ -5,9 +5,12 @@ import ProductFilter from "./ProductFilter";
 import { getProductList } from "./../../services/Product.service";
 import { MenuEnum } from "./../../consts/MenuEnum";
 import { connect, useDispatch } from "react-redux";
-import { AddProduct } from "./../../state/actions/BasketActions";
+import {
+  AddProduct,
+  IncremenProductQuantity,
+} from "./../../state/actions/BasketActions";
 
-const Products = ({ isOffer }) => {
+const Products = ({ isOffer, basketProductsList }) => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
 
@@ -19,7 +22,21 @@ const Products = ({ isOffer }) => {
   };
 
   const handleAddToBasket = (product) => {
-    dispatch(AddProduct(product));
+    const foundProduct = foundProductInBasket(product);
+    if (foundProduct) {
+      dispatch(
+        IncremenProductQuantity({
+          productId: product.id,
+          quantity: foundProduct.quantity + 1,
+        })
+      );
+    } else {
+      dispatch(AddProduct(product));
+    }
+  };
+
+  const foundProductInBasket = (product) => {
+    return basketProductsList.find((prod) => prod.id === product.id);
   };
 
   return (
@@ -57,6 +74,7 @@ const Products = ({ isOffer }) => {
 
 const mapStateToProps = (state) => ({
   isOffer: state.app.selectedMenu === MenuEnum.Offers ? true : false,
+  basketProductsList: state.basket.productsList,
 });
 
 export default connect(mapStateToProps)(React.memo(Products));

@@ -11,7 +11,6 @@ const BasketListProducts = ({ product }) => {
   const quantitiesOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const handleOndDeleteClick = () => {
     dispatch(DeleteProduct(product.id));
-    console.log("Delete product", product);
   };
 
   const handletChangeQuantity = (quantity) => {
@@ -21,7 +20,6 @@ const BasketListProducts = ({ product }) => {
         quantity: parseInt(quantity),
       })
     );
-    console.log("increment quantity", quantity);
   };
 
   return (
@@ -48,12 +46,14 @@ const BasketListProducts = ({ product }) => {
           <select
             className=""
             id="quantityInput"
+            value={product.quantity}
             onChange={(event) => {
+              console.log(event);
               handletChangeQuantity(event.target.value);
             }}
           >
             {quantitiesOptions.map((quantity, index) => (
-              <option value="quantity" key={`product_${index}`}>
+              <option value={quantity} key={`product_${index}`}>
                 {quantity}
               </option>
             ))}
