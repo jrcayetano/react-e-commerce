@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import BasketListSubtotal from "./BasketListSubtotal";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import BasketListProducts from "./BasketListProducts";
+import { createOrder, generateOrder } from "./../../services/Orders.service";
+import { ClearBasket } from "./../../state/actions/BasketActions";
+const BasketList = ({ basketList, isUserLogged, userLoggedData }) => {
+  const [subtotal, setSubtotal] = useState(0);
+  const dispatch = useDispatch();
 
-const BasketList = ({ basketList }) => {
   const calculateSubtotal = () => {
     const total = basketList
       .map((product) =>
@@ -16,10 +20,19 @@ const BasketList = ({ basketList }) => {
   };
 
   const handleBuy = () => {
+    if (!isUserLogged) {
+      // TODO: Falta toast
+      return;
+    }
+    const order = generateOrder(basketList, subtotal, userLoggedData);
+    createOrder(order).then((response) => {
+      if (response && response.data) {
+        dispatch(ClearBasket());
+      }
+    });
     console.log("buy");
   };
 
-  const [subtotal, setSubtotal] = useState(0);
   useEffect(() => {
     calculateSubtotal();
   }, [basketList]);
@@ -38,6 +51,8 @@ const BasketList = ({ basketList }) => {
 
 const mapStateToProps = (state) => ({
   basketList: state.basket.productsList,
+  isUserLogged: state.userLogged.isLogged,
+  userLoggedData: state.userLogged.profile,
 });
 
 export default connect(mapStateToProps)(React.memo(BasketList));

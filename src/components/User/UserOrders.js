@@ -14,8 +14,8 @@ const UserOrders = () => {
       <div className="row">
         <div className="col w-100 page-wrapper">
           <h3 className="title-page title-page">Mis pedidos</h3>
-          {orders.map((order) => (
-            <UserOrderItem order={order} />
+          {orders.map((order, index) => (
+            <UserOrderItem order={order} key={`order_${index}`} />
           ))}
         </div>
       </div>
