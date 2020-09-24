@@ -3,8 +3,10 @@ import ProfileForm from "./ProfileForm";
 import { getStates } from "./../../services/States.service";
 import { connect, useDispatch } from "react-redux";
 import { updateProfile } from "./../../services/User.service";
+import { SetUsername } from "./../../state/actions/UserLoggedActions";
 
 const Profile = ({ profile }) => {
+  const dispatch = useDispatch();
   const [states, setStates] = useState([]);
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -23,9 +25,11 @@ const Profile = ({ profile }) => {
     updateProfile(userProfile, userId, password).then((response) => {
       if (response && response.data) {
         console.log("user updated");
+        dispatch(SetUsername(response.data.username));
       }
     });
   };
+
   return (
     <div className="container">
       <div className="row">
