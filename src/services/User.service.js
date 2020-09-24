@@ -4,10 +4,11 @@ import {
   API_PROFILE,
   API_USER_ORDERS,
   API_FAVORITE_PRODUCTS,
+  API_USERS,
 } from "./../consts/api";
 
 export const getProfile = () => {
-  return this.http.get(`${SERVER_URL}/${API_PROFILE}`);
+  return http.get(`${SERVER_URL}/${API_PROFILE}`);
 };
 
 export const getOrders = () => {
@@ -19,4 +20,14 @@ export const getOrders = () => {
 
 export const getFavorites = () => {
   return http.get(`${SERVER_URL}/${API_FAVORITE_PRODUCTS}`);
+};
+
+export const updateProfile = (profile, userId, password) => {
+  /* Para funcionar con json-auth-server es necesario el envío de la password e email
+   * Por no que es necesario aplicar a password, el campo repassword que es el que contiene
+   * la password en plano
+   */
+  profile["password"] = password;
+  profile["repassword"] = password;
+  return http.patch(`${SERVER_URL}/${API_USERS}/${userId}`, profile);
 };

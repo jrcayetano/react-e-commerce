@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RegisterForm from "./RegisterForm";
 import { getStates } from "./../../services/States.service";
 
 const Register = () => {
   const [states, setStates] = useState([]);
 
-  useState(() => {
-    console.log("a");
+  useEffect(() => {
     getStates().then((response) => setStates(response.data));
-  }, [states]);
+  }, []);
 
   const handleSubmit = (formValues) => {
     console.log("form values", formValues);

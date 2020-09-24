@@ -2,8 +2,8 @@
   "users": [
     {
       "email": "user1@email.com",
-      "password": "$2a$10$jtqqTbrf2866FNj2jxMBZuIgUifcfqm6JTj722m/cMG6zJ/DIkW1q",
-      "username": "user1",
+      "password": "$2a$10$fqpxoNHEv039PBPdGtU0OO0SR6CZtqwP/dz3d20GTUhKFv6oeXzri",
+      "username": "user11",
       "name": "user1_name",
       "surname": "user1_surname",
       "address": "user1_street",
