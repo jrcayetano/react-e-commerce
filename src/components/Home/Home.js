@@ -10,6 +10,7 @@ import ProductDetail from "./../Products/ProductDetail";
 import UserOrders from "./../User/UserOrders";
 import UserFavoriteProduct from "./../User/UserFavoriteProduct";
 import Login from "./../Sign/Login";
+import Register from "./../Sign/Register";
 
 const Home = ({ isBasketOpened }) => {
   return (
@@ -29,6 +30,7 @@ const Home = ({ isBasketOpened }) => {
           <Route path="/user/orders" component={UserOrders} />
           <Route path="/user/favorite" component={UserFavoriteProduct} />
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           {isBasketOpened && <BasketList />}
         </main>
       </div>

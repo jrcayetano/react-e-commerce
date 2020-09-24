@@ -12,6 +12,19 @@
       "zip": "41325",
       "repassword": "Puerta164ever!",
       "id": 1
+    },
+    {
+      "email": "user2@email.com",
+      "password": "$2a$10$hKPsJteMI1vvc7mG85MKHemb/T/VWhVgHDsxa68GSFXyhLKZH5hUa",
+      "username": "user2",
+      "name": "user2_name",
+      "surname": "user2_surname",
+      "address": "user2_adress",
+      "city": "user2_city",
+      "state": "Almería",
+      "zip": "41000",
+      "repassword": "Puerta164ever!",
+      "id": 2
     }
   ],
   "products": [

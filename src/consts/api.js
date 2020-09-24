@@ -1,5 +1,6 @@
 export const API_PRODUCTS = "products";
 export const API_LOGIN = "login";
+export const API_REGISTER = "register";
 export const API_STATES = "states";
 // USER PATH
 export const API_USER = "user";

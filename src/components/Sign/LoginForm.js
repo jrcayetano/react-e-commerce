@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Login from "./Login";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -20,10 +20,6 @@ const LoginForm = ({ onSubmit }) => {
       onSubmit(values);
     },
   });
-
-  /*  useEffect(() => {
-    console.log({ formik });
-  }, [formik]); */
 
   return (
     <form className="login-form" onSubmit={formik.handleSubmit} noValidate>
