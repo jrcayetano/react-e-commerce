@@ -1,0 +1,32 @@
+@import "./colors.scss";
+.login-form {
+  border: 1px solid $color-border;
+  margin: auto;
+  padding: 1rem;
+}
+
+.login-form__wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+:host {
+  height: 68vh;
+  display: flex;
+  align-items: center;
+}
+
+.title-page {
+  margin-bottom: 2rem;
+}
+
+.btn-form {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .login-form__wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

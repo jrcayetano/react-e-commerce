@@ -55,3 +55,13 @@
 .product-filter {
   margin-left: 25%;
 }
+
+.filter-button-wrapper {
+  margin-left: 30%;
+}
+
+@media (max-width: 992px) {
+  .product-filter {
+    margin-left: 0;
+  }
+}

@@ -5,8 +5,13 @@ import Footer from "./Footer";
 import { Route } from "react-router-dom";
 import Products from "./../Products";
 import BasketList from "./BasketList";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import ProductDetail from "./../Products/ProductDetail";
+import UserOrders from "./../User/UserOrders";
+import UserFavoriteProduct from "./../User/UserFavoriteProduct";
+import Login from "./../Sign/Login";
+import Register from "./../Sign/Register";
+import Profile from "./../User/Profile";
 
 const Home = ({ isBasketOpened }) => {
   return (
@@ -23,6 +28,11 @@ const Home = ({ isBasketOpened }) => {
           <Route exact path="/offers" component={Products} />
           <Route exact path="/products/:id" component={ProductDetail} />
           <Route exact path="/offers/:id" component={ProductDetail} />
+          <Route path="/user/orders" component={UserOrders} />
+          <Route path="/user/favorite" component={UserFavoriteProduct} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/user/edit-profile" component={Profile} />
           {isBasketOpened && <BasketList />}
         </main>
       </div>

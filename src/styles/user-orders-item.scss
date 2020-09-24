@@ -1,0 +1,71 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+:host {
+  display: block;
+}
+
+.order-item__header,
+.order-item__body {
+  padding: 1rem;
+}
+.order-item__header {
+  font-size: 11px;
+  background-color: $colorHeaderOrder;
+  display: flex;
+  justify-content: space-between;
+
+  border: $borderderBottomHeader;
+}
+
+.order-item__Header--left {
+  display: flex;
+  width: 60%;
+  & > * {
+    margin-right: 2rem;
+  }
+}
+
+.order-item__header__total__title,
+.order-item__header__date__title,
+.order-item__header__receiver__title,
+.order-item__header__receiver__order-number span {
+  text-transform: uppercase;
+}
+
+.order-item__body__delivery {
+  margin-bottom: 1rem;
+}
+
+.order-item__body__delivery__status {
+  font-size: 17px;
+  font-weight: $font-bold;
+}
+
+.order-item__body__delivery__info {
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .order-item__header {
+    flex-direction: column;
+  }
+  .order-item__Header--left {
+    width: 100%;
+    flex-direction: column;
+    order: 2;
+  }
+  .order-item__Header--right {
+    order: 1;
+  }
+  .order-item__header__date,
+  .order-item__header__total,
+  .order-item__header__receiver {
+    display: flex;
+    flex-direction: row;
+  }
+  .order-item__header__date__title,
+  .order-item__header__total__title,
+  .order-item__header__receiver__title {
+    margin-right: 0.7rem;
+  }
+}

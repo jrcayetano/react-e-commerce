@@ -1,0 +1,24 @@
+@import "./colors.scss";
+
+:host {
+  position: relative;
+  display: block;
+}
+
+.register-form {
+  padding: 2rem;
+  border: 1px solid $color-border;
+}
+
+.form__wrapper {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.title-page {
+  margin-bottom: 2rem;
+}
+
+.btn-form {
+  margin-top: 1rem;
+}
