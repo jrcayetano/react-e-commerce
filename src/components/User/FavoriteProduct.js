@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HOME_PATH, PRODUCTS_PATH } from "./../../consts/paths";
 import { Link } from "react-router-dom";
 import { AddProduct } from "./../../state/actions/BasketActions";
@@ -8,11 +8,13 @@ const FavoriteProduct = ({ product }) => {
   const dispatch = useDispatch();
   const productPath = `${HOME_PATH}/${PRODUCTS_PATH}/${product.id}`;
 
-  const hadleAddToBasket = () => {
+  useEffect(() => {}, [product]);
+
+  const handleAddToBasket = () => {
     dispatch(AddProduct(product));
   };
 
-  const hadleDelete = () => {
+  const handleDelete = () => {
     dispatch(DeleteFavoriteProduct(product.id));
   };
 
@@ -44,14 +46,14 @@ const FavoriteProduct = ({ product }) => {
         <div className="favorite-product__actions__buttons">
           <button
             type="button"
-            onClick={hadleAddToBasket}
+            onClick={handleAddToBasket}
             className="btn btn-warning btn-sm"
           >
             Añadir a la cesta
           </button>
           <button
             type="button"
-            onClick={hadleDelete}
+            onClick={handleDelete}
             className="btn btn-danger btn-sm"
           >
             Eliminar

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import FavoriteProductList from "./FavoriteProductList";
 import { connect, useDispatch } from "react-redux";
 import { getFavorites } from "./../../services/User.service";
@@ -8,9 +8,9 @@ const UserFavoriteProduct = ({ favoriteList }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getFavorites().then((response) =>
-      dispatch(AddFavoriteProductInBulk(response.data))
-    );
+    getFavorites().then((response) => {
+      dispatch(AddFavoriteProductInBulk(response.data));
+    });
   }, []);
 
   return (
