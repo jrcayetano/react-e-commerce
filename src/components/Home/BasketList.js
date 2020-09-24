@@ -4,6 +4,8 @@ import { connect, useDispatch } from "react-redux";
 import BasketListProducts from "./BasketListProducts";
 import { createOrder, generateOrder } from "./../../services/Orders.service";
 import { ClearBasket } from "./../../state/actions/BasketActions";
+import { setToast, showToast } from "./../../state/actions/AppActions";
+import { generateToast } from "./../../services/Toast.service";
 const BasketList = ({ basketList, isUserLogged, userLoggedData }) => {
   const [subtotal, setSubtotal] = useState(0);
   const dispatch = useDispatch();
@@ -21,21 +23,29 @@ const BasketList = ({ basketList, isUserLogged, userLoggedData }) => {
 
   const handleBuy = () => {
     if (!isUserLogged) {
-      // TODO: Falta toast
+      toast("Debe iniciar sesión para realizar la compra", true);
       return;
     }
     const order = generateOrder(basketList, subtotal, userLoggedData);
-    createOrder(order).then((response) => {
-      if (response && response.data) {
-        dispatch(ClearBasket());
-      }
-    });
-    console.log("buy");
+    createOrder(order)
+      .then((response) => {
+        if (response && response.data) {
+          toast("Compra realizada correctamente");
+          dispatch(ClearBasket());
+        }
+      })
+      .catch((error) => toast(error.response.data, true));
   };
 
   useEffect(() => {
     calculateSubtotal();
   }, [basketList]);
+
+  const toast = (message, isError = false) => {
+    const toast = generateToast(message, isError);
+    dispatch(setToast(toast));
+    dispatch(showToast(true));
+  };
 
   return (
     <div className="basket-list">

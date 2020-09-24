@@ -12,23 +12,32 @@ import {
 } from "./../../state/actions/UserLoggedActions";
 import { SET_TOKEN } from "./../../state/actions/AppActions";
 import { Link } from "react-router-dom";
+import { setToast, showToast } from "./../../state/actions/AppActions";
+import { generateToast } from "./../../services/Toast.service";
 
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const handleSubmit = (formValues) => {
-    login(formValues).then((response) =>
-      getUserLoggedData(response.data, formValues)
-    );
+    login(formValues)
+      .then((response) => getUserLoggedData(response.data, formValues))
+      .catch((error) => toast(error.response.data, true));
   };
 
   const getUserLoggedData = (response, formValues) => {
     if (response && response.accessToken) {
-      getUserByEmail(formValues.email).then((userData) =>
-        saveLoggedUserDataInStore(response, userData.data)
-      );
+      console.log(response);
+      getUserByEmail(formValues.email)
+        .then((userData) => saveLoggedUserDataInStore(response, userData.data))
+        .catch((error) => toast(error.response.data, true));
     }
+  };
+
+  const toast = (message, isError = false) => {
+    const toast = generateToast(message, isError);
+    dispatch(setToast(toast));
+    dispatch(showToast(true));
   };
 
   const saveLoggedUserDataInStore = (response, userData) => {

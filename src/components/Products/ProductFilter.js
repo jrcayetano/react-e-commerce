@@ -187,7 +187,7 @@ const ProductFilter = ({ onFilterChange }) => {
           </div>
         </form>
       </div>
-      <div class="filter-button-wrapper">
+      <div className="filter-button-wrapper">
         <button
           type="button"
           className="btn btn-light d-block d-lg-none"

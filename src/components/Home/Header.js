@@ -30,7 +30,7 @@ const Header = ({ selectedMenu }) => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a
         className="navbar-brand"
-        onClick={() => this.handleOnSelectMenu("productsMenu")}
+        onClick={() => handleOnSelectMenu("productsMenu")}
       >
         <img
           src={brand}
