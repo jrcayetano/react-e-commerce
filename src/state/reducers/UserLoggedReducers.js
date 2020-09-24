@@ -1,6 +1,6 @@
 import { UserLoggedActionsType } from "./../actions/UserLoggedActions";
 export const initialState = {
-  isLogged: true,
+  isLogged: false,
   username: "",
   email: "",
   favoriteProducts: [],
