@@ -15,7 +15,7 @@ import Profile from "./../User/Profile";
 import ToastEcommerce from "./../General/Toast";
 
 import { useDispatch } from "react-redux";
-import { setMessageToast, showToast } from "./../../state/actions/AppActions";
+import { setToast, showToast } from "./../../state/actions/AppActions";
 import { generateToast } from "./../../services/Toast.service";
 import ToastWrapper from "../General/ToastWrapper";
 
@@ -24,13 +24,13 @@ const Home = ({ isBasketOpened }) => {
 
   return (
     <React.Fragment>
-      {/*  <button
+      {/* <button
         onClick={() => {
           const toast = generateToast(
             "El usuario se ha actualizado correctamente",
             true
           );
-          dispatch(setMessageToast(toast));
+          dispatch(setToast(toast));
           dispatch(showToast(true));
         }}
       ></button> */}

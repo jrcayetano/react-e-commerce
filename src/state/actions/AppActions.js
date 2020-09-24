@@ -3,8 +3,8 @@ export const AppActionsType = {
   SET_TOKEN: "[APP GENERAL - SET_TOKEN]",
   SET_FIRSTLOAD_APP: "[APP GENERAL - SET_FIRSTLOAD_APP]",
   SHOW_TOAST: "[APP GENERAL - SHOW TOAST]",
-  SET_MESSAGE_TOAST: "[APP GENERAL - MESSAGE TOAST]",
-  CLEAR_MESSAGE_TOAST: "[APP GENERAL - CLEAR MESSAGE TOAST]",
+  SET_TOAST: "[APP GENERAL - MESSAGE TOAST]",
+  CLEAR_TOAST: "[APP GENERAL - CLEAR MESSAGE TOAST]",
 };
 
 export const SET_MENU = (menu) => ({
@@ -22,13 +22,13 @@ export const SET_FIRSTLOAD_APP = (isFIrstLoad) => ({
   payload: isFIrstLoad,
 });
 
-export const setMessageToast = (message) => ({
-  type: AppActionsType.SET_MESSAGE_TOAST,
+export const setToast = (message) => ({
+  type: AppActionsType.SET_TOAST,
   payload: message,
 });
 
-export const clearMessageToast = () => ({
-  type: AppActionsType.CLEAR_MESSAGE_TOAST,
+export const clearToast = () => ({
+  type: AppActionsType.CLEAR_TOAST,
 });
 
 export const showToast = (show) => ({

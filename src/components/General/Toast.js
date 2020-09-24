@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Toast from "react-bootstrap/Toast";
 import { connect } from "react-redux";
-import { clearMessageToast, showToast } from "./../../state/actions/AppActions";
+import { clearToast, showToast } from "./../../state/actions/AppActions";
 import { useDispatch } from "react-redux";
 import classnames from "classnames";
 
@@ -17,7 +17,7 @@ const ToastEcommerce = ({ title, message, show, isError }) => {
         autohide
         show={show}
         onClose={() => {
-          dispatch(clearMessageToast());
+          dispatch(clearToast());
           dispatch(showToast(false));
         }}
       >

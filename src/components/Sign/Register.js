@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import RegisterForm from "./RegisterForm";
 import { getStates } from "./../../services/States.service";
+import { register } from "./../../services/Register.service";
+import { LOGIN_PATH } from "./../../consts/paths";
+
+import { useHistory } from "react-router";
 
 const Register = () => {
   const [states, setStates] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     getStates().then((response) => setStates(response.data));
   }, []);
 
   const handleSubmit = (formValues) => {
+    register(formValues).then((response) => {
+      if (response && response.data) {
+        history.push(`/${LOGIN_PATH}`);
+      }
+    });
     console.log("form values", formValues);
   };
 

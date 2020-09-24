@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import ToastEcommerce from "./Toast";
-const ToastWrapper = ({ toastMessages, show }) => {
+const ToastWrapper = ({ toasts, show }) => {
   return (
     <div className="toast-wrapper">
       <div className="toast-wrapper__container">
-        {toastMessages.map((toast, index) => (
+        {toasts.map((toast, index) => (
           <ToastEcommerce
             key={`toast_${index}`}
             title={toast.title}
@@ -20,7 +20,7 @@ const ToastWrapper = ({ toastMessages, show }) => {
 };
 
 const mapStateToProps = (state) => ({
-  toastMessages: state.app.toastMessages,
+  toasts: state.app.toasts,
   show: state.app.showToast,
 });
 

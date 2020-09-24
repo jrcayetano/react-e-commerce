@@ -5,7 +5,7 @@ export const initialState = {
   token: "",
   isFirstLoadApp: true,
   showToast: false,
-  toastMessages: [],
+  toasts: [],
 };
 
 export default function appReducer(state = initialState, action) {
@@ -28,16 +28,16 @@ export default function appReducer(state = initialState, action) {
         isFirstLoadApp: action.payload,
       };
     }
-    case AppActionsType.SET_MESSAGE_TOAST: {
+    case AppActionsType.SET_TOAST: {
       return {
         ...state,
-        toastMessages: [...state.toastMessages, action.payload],
+        toasts: [...state.toasts, action.payload],
       };
     }
-    case AppActionsType.CLEAR_MESSAGE_TOAST: {
+    case AppActionsType.CLEAR_TOAST: {
       return {
         ...state,
-        toastMessages: [],
+        toasts: [],
       };
     }
     case AppActionsType.SHOW_TOAST: {

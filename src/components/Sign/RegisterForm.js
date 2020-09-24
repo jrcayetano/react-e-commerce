@@ -8,9 +8,6 @@ import {
   VALID_EMAIL_PATTERN,
   VALID_PASSWORD_PATTERN,
 } from "./../../consts/patterns";
-import { register } from "./../../services/Register.service";
-import { useHistory } from "react-router";
-import { LOGIN_PATH } from "./../../consts/paths";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Required"),
@@ -39,7 +36,6 @@ const validationSchema = Yup.object().shape({
 
 const RegisterForm = ({ states, onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
-  const history = useHistory();
 
   const formik = useFormik({
     initialValues: {
@@ -58,11 +54,7 @@ const RegisterForm = ({ states, onSubmit }) => {
     onSubmit(values) {
       console.log("submit");
       setSubmitted(true);
-      register(values).then((response) => {
-        if (response && response.data) {
-          history.push(`/${LOGIN_PATH}`);
-        }
-      });
+      onSubmit(values);
     },
   });
 
