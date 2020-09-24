@@ -4,6 +4,8 @@ export const initialState = {
   selectedMenu: "",
   token: "",
   isFirstLoadApp: true,
+  showToast: false,
+  toastMessages: [],
 };
 
 export default function appReducer(state = initialState, action) {
@@ -24,6 +26,24 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         isFirstLoadApp: action.payload,
+      };
+    }
+    case AppActionsType.SET_MESSAGE_TOAST: {
+      return {
+        ...state,
+        toastMessages: [...state.toastMessages, action.payload],
+      };
+    }
+    case AppActionsType.CLEAR_MESSAGE_TOAST: {
+      return {
+        ...state,
+        toastMessages: [],
+      };
+    }
+    case AppActionsType.SHOW_TOAST: {
+      return {
+        ...state,
+        showToast: action.payload,
       };
     }
     default:
