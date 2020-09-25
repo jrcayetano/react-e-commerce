@@ -29,8 +29,8 @@ const Header = ({ selectedMenu, isLogged }) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a
-        href="."
+      <Link
+        to={`/${PRODUCTS_PATH}`}
         className="navbar-brand"
         onClick={() => handleOnSelectMenu(MenuEnum.Products)}
       >
@@ -42,7 +42,7 @@ const Header = ({ selectedMenu, isLogged }) => {
           alt=""
         />
         E-commerce
-      </a>
+      </Link>
       <div className="header__action-bar">
         <span className="d-block d-lg-none">
           <Basket />
