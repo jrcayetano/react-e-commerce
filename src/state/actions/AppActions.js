@@ -7,17 +7,17 @@ export const AppActionsType = {
   CLEAR_TOAST: "[APP GENERAL - CLEAR MESSAGE TOAST]",
 };
 
-export const SET_MENU = (menu) => ({
+export const setMenu = (menu) => ({
   type: AppActionsType.SET_MENU,
   payload: menu,
 });
 
-export const SET_TOKEN = (token) => ({
+export const setToken = (token) => ({
   type: AppActionsType.SET_TOKEN,
   payload: token,
 });
 
-export const SET_FIRSTLOAD_APP = (isFIrstLoad) => ({
+export const setFirstload_app = (isFIrstLoad) => ({
   type: AppActionsType.SET_FIRSTLOAD_APP,
   payload: isFIrstLoad,
 });

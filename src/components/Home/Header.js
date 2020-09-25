@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { connect, useDispatch } from "react-redux";
 import { MenuEnum } from "./../../consts/MenuEnum";
-import { SET_MENU } from "./../../state/actions/AppActions";
+import { setMenu } from "./../../state/actions/AppActions";
 
 const Header = ({ selectedMenu, isLogged }) => {
   const [isMenuCollapse, setIsMenuCollapse] = useState(true);
@@ -23,7 +23,7 @@ const Header = ({ selectedMenu, isLogged }) => {
   const handleMenuCollapse = () => setIsMenuCollapse(!isMenuCollapse);
 
   const handleOnSelectMenu = (menu) => {
-    dispatch(SET_MENU(menu));
+    dispatch(setMenu(menu));
     handleMenuCollapse();
   };
 

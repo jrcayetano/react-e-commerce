@@ -11,7 +11,7 @@ import {
 } from "./../../consts/paths";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { SET_MENU } from "./../../state/actions/AppActions";
+import { setMenu } from "./../../state/actions/AppActions";
 import { MenuEnum } from "./../../consts/MenuEnum";
 import { useDispatch } from "react-redux";
 
@@ -24,7 +24,7 @@ const LoggedUser = ({ username, isLogged }) => {
   };
 
   const handleSelectMenu = (menu) => {
-    dispatch(SET_MENU(menu));
+    dispatch(setMenu(menu));
   };
 
   if (isLogged) {

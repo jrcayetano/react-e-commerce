@@ -14,7 +14,7 @@ import {
   SetEmail,
   SetUsername,
 } from "./../../state/actions/UserLoggedActions";
-import { SET_TOKEN } from "./../../state/actions/AppActions";
+import { setToken } from "./../../state/actions/AppActions";
 import { Link } from "react-router-dom";
 import { setToast, showToast } from "./../../state/actions/AppActions";
 import { generateToast } from "./../../services/Toast.service";
@@ -46,7 +46,7 @@ const Login = ({ selectedMenu }) => {
 
   const saveLoggedUserDataInStore = (response, userData) => {
     dispatch(SetProfile(userData[0]));
-    dispatch(SET_TOKEN(response.accessToken));
+    dispatch(setToken(response.accessToken));
     dispatch(SetIsLogged());
     dispatch(SetEmail(userData[0].email));
     dispatch(SetUsername(userData[0].username));
