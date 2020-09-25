@@ -16,7 +16,7 @@ import { connect, useDispatch } from "react-redux";
 import { MenuEnum } from "./../../consts/MenuEnum";
 import { SET_MENU } from "./../../state/actions/AppActions";
 
-const Header = ({ selectedMenu }) => {
+const Header = ({ selectedMenu, isLogged }) => {
   const [isMenuCollapse, setIsMenuCollapse] = useState(true);
   const dispatch = useDispatch();
 
@@ -62,30 +62,48 @@ const Header = ({ selectedMenu }) => {
         </button>
       </div>
       <div
-        className={`${isMenuCollapse ? "collapse" : ""} navbar-collapse`}
+        className={`${isMenuCollapse ? "collapse" : ""} navbar-collapse mobile`}
         id="navbarsExample09"
       >
-        <h4 className="d-block d-lg-none">Mi perfil</h4>
-        <ul className="navbar-nav d-block d-lg-none">
-          <li className="nav-item" onClick={handleMenuCollapse}>
-            <Link to={`${USER_PATH}/${EDIT_PROFILE_PATH}`} className="nav-link">
-              Editar perfil
-            </Link>
-          </li>
-          <li className="nav-item" onClick={handleMenuCollapse}>
-            <Link to={`/${USER_PATH}/${USER_ORDERS_PATH}`} className="nav-link">
-              Pedidos realziados
-            </Link>
-          </li>
-          <li className="nav-item" onClick={handleMenuCollapse}>
-            <Link
-              to={`/${USER_PATH}/${USER_FAVORITE_PRODUCTS_PATH}`}
-              className="nav-link"
-            >
-              Productos favoritos
-            </Link>
-          </li>
-        </ul>
+        {isLogged && (
+          <>
+            <h4 className="d-block d-lg-none">Mi perfil</h4>
+            <ul className="navbar-nav d-block d-lg-none">
+              <li className="nav-item" onClick={handleMenuCollapse}>
+                <Link
+                  to={`${USER_PATH}/${EDIT_PROFILE_PATH}`}
+                  className="nav-link"
+                >
+                  Editar perfil
+                </Link>
+              </li>
+              <li className="nav-item" onClick={handleMenuCollapse}>
+                <Link
+                  to={`/${USER_PATH}/${USER_ORDERS_PATH}`}
+                  className="nav-link"
+                >
+                  Pedidos realziados
+                </Link>
+              </li>
+              <li className="nav-item" onClick={handleMenuCollapse}>
+                <Link
+                  to={`/${USER_PATH}/${USER_FAVORITE_PRODUCTS_PATH}`}
+                  className="nav-link"
+                >
+                  Productos favoritos
+                </Link>
+              </li>
+            </ul>
+          </>
+        )}
+        {!isLogged && (
+          <div
+            className="login-button is-mobile d-block d-lg-none"
+            onClick={handleMenuCollapse}
+          >
+            <LoggedUser mobile={true} />
+          </div>
+        )}
         <h4 className="d-block d-lg-none">Tienda</h4>
         <ul className="navbar-nav">
           <li
@@ -122,6 +140,7 @@ const Header = ({ selectedMenu }) => {
 
 const mapStateToProps = (state) => ({
   selectedMenu: state.app.selectedMenu,
+  isLogged: state.userLogged.isLogged,
 });
 
 export default connect(mapStateToProps)(React.memo(Header));

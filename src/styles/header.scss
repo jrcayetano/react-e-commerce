@@ -24,3 +24,12 @@ li {
 .brand-image {
   margin-right: 0.5rem;
 }
+
+.login-button.is-mobile {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+}
+.navbar-collapse.mobile {
+  margin-top: 0.5rem;
+}
