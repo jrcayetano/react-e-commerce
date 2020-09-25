@@ -23,4 +23,4 @@ const UserOrders = () => {
   );
 };
 
-export default React.memo(UserOrders);
+export default UserOrders;

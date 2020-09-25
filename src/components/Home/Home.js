@@ -13,8 +13,9 @@ import Login from "./../Sign/Login";
 import Register from "./../Sign/Register";
 import Profile from "./../User/Profile";
 import ToastWrapper from "../General/ToastWrapper";
+import ProtectedRoute from "../General/ProtectedRoute";
 
-const Home = ({ isBasketOpened }) => {
+const Home = ({ isBasketOpened, isLogged }) => {
   return (
     <React.Fragment>
       <ToastWrapper />
@@ -30,11 +31,23 @@ const Home = ({ isBasketOpened }) => {
           <Route exact path="/offers" component={Products} />
           <Route exact path="/products/:id" component={ProductDetail} />
           <Route exact path="/offers/:id" component={ProductDetail} />
-          <Route path="/user/orders" component={UserOrders} />
-          <Route path="/user/favorite" component={UserFavoriteProduct} />
+          <ProtectedRoute
+            path="/user/orders"
+            isLogged={isLogged}
+            component={UserOrders}
+          />
+          <ProtectedRoute
+            path="/user/favorite"
+            isLogged={isLogged}
+            component={UserFavoriteProduct}
+          />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/user/edit-profile" component={Profile} />
+          <ProtectedRoute
+            path="/user/edit-profile"
+            isLogged={isLogged}
+            component={Profile}
+          />
           {isBasketOpened && <BasketList />}
         </main>
       </div>
@@ -45,6 +58,7 @@ const Home = ({ isBasketOpened }) => {
 
 const mapStateToProps = (state) => ({
   isBasketOpened: state.basket.opened,
+  isLogged: state.userLogged.isLogged,
 });
 
 export default connect(mapStateToProps)(React.memo(Home));
