@@ -6,7 +6,6 @@ import classnames from "classnames";
 
 const ToastEcommerce = ({ title, message, show, isError }) => {
   const dispatch = useDispatch();
-  console.log(show);
   return (
     <div
       className={classnames({ "bg-success": !isError, "bg-danger": isError })}

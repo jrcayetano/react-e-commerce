@@ -27,7 +27,6 @@ const Login = () => {
 
   const getUserLoggedData = (response, formValues) => {
     if (response && response.accessToken) {
-      console.log(response);
       getUserByEmail(formValues.email)
         .then((userData) => saveLoggedUserDataInStore(response, userData.data))
         .catch((error) => toast(error.response.data, true));

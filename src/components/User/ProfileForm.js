@@ -35,7 +35,6 @@ const validationSchema = Yup.object().shape({
 });
 
 const ProfileForm = ({ states, profile, onSubmit }) => {
-  console.log(profile);
   const [submitted, setSubmitted] = useState(false);
 
   const formik = useFormik({
@@ -56,10 +55,6 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
       setSubmitted(true);
       onSubmit(values);
     },
-  });
-
-  useEffect(() => {
-    console.log({ formik });
   });
 
   return (

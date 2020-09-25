@@ -52,14 +52,9 @@ const RegisterForm = ({ states, onSubmit }) => {
     },
     validationSchema,
     onSubmit(values) {
-      console.log("submit");
       setSubmitted(true);
       onSubmit(values);
     },
-  });
-
-  useEffect(() => {
-    console.log({ formik });
   });
 
   return (

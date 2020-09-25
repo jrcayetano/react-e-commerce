@@ -47,7 +47,6 @@ const BasketListProducts = ({ product }) => {
             id="quantityInput"
             value={product.quantity}
             onChange={(event) => {
-              console.log(event);
               handletChangeQuantity(event.target.value);
             }}
           >

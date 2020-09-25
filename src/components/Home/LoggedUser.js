@@ -27,7 +27,7 @@ const LoggedUser = ({ username, isLogged }) => {
           title={username}
           className="logged-user__options"
         >
-          <Dropdown.Item as={Link} to={`${USER_PATH}/${EDIT_PROFILE_PATH}`}>
+          <Dropdown.Item as={Link} to={`/${USER_PATH}/${EDIT_PROFILE_PATH}`}>
             Editar perfil
           </Dropdown.Item>
           <Dropdown.Item as={Link} to={`/${USER_PATH}/${USER_ORDERS_PATH}`}>

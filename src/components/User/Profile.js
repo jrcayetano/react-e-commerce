@@ -23,7 +23,6 @@ const Profile = ({ profile }) => {
   }, [profile]);
 
   const handleSubmit = (userProfile) => {
-    console.log("sbmit update");
     updateProfile(userProfile, userId, password)
       .then((response) => {
         if (response && response.data) {

@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Products from "./../Products";
 import BasketList from "./BasketList";
 import { connect } from "react-redux";
@@ -26,6 +26,7 @@ const Home = ({ isBasketOpened }) => {
             "basket-opened": isBasketOpened,
           })}
         >
+          <Redirect from="/" to="/products" />
           <Route exact path="/products" component={Products} />
           <Route exact path="/offers" component={Products} />
           <Route exact path="/products/:id" component={ProductDetail} />

@@ -6,7 +6,7 @@ import { DeleteFavoriteProduct } from "./../../state/actions/UserLoggedActions";
 import { useDispatch } from "react-redux";
 const FavoriteProduct = ({ product }) => {
   const dispatch = useDispatch();
-  const productPath = `${HOME_PATH}/${PRODUCTS_PATH}/${product.id}`;
+  const productPath = `/${PRODUCTS_PATH}/${product.id}`;
 
   useEffect(() => {}, [product]);
 

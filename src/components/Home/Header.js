@@ -31,13 +31,13 @@ const Header = ({ selectedMenu }) => {
       <a
         href="."
         className="navbar-brand"
-        onClick={() => handleOnSelectMenu("productsMenu")}
+        onClick={() => handleOnSelectMenu(MenuEnum.Products)}
       >
         <img
           src={brand}
           width="30"
           height="30"
-          className="d-inline-block align-top"
+          className="d-inline-block align-top brand-image"
           alt=""
         />
         E-commerce
