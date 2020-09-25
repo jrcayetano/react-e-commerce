@@ -6,12 +6,12 @@ import * as serviceWorker from "./serviceWorker";
 
 import rootReducer from "./state/reducers";
 
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-
+import { composeWithDevTools } from "redux-devtools-extension";
 import { persistStore, persistReducer } from "redux-persist";
-
+import thunk from "redux-thunk";
 import storageSession from "redux-persist/lib/storage/session";
 
 const persistConfig = {
@@ -20,7 +20,10 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-let store = createStore(persistedReducer);
+let store = createStore(
+  persistedReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 let persistor = persistStore(store);
 
 ReactDOM.render(
