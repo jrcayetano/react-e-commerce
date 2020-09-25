@@ -32,7 +32,7 @@ const Header = ({ selectedMenu, isLogged }) => {
       <Link
         to={`/${PRODUCTS_PATH}`}
         className="navbar-brand"
-        onClick={() => handleOnSelectMenu(MenuEnum.Products)}
+        onClick={() => handleOnSelectMenu(MenuEnum.PRODUCTS)}
       >
         <img
           src={brand}
@@ -130,9 +130,9 @@ const Header = ({ selectedMenu, isLogged }) => {
           <li
             className={classnames({
               "nav-item": true,
-              active: selectedMenu === MenuEnum.Products ? true : false,
+              active: selectedMenu === MenuEnum.PRODUCTS ? true : false,
             })}
-            onClick={() => handleOnSelectMenu(MenuEnum.Products)}
+            onClick={() => handleOnSelectMenu(MenuEnum.PRODUCTS)}
           >
             <Link to={`/${PRODUCTS_PATH}`} className="nav-link">
               Productos
@@ -141,9 +141,9 @@ const Header = ({ selectedMenu, isLogged }) => {
           <li
             className={classnames({
               "nav-item": true,
-              active: selectedMenu === MenuEnum.Offers ? true : false,
+              active: selectedMenu === MenuEnum.OFFERS ? true : false,
             })}
-            onClick={() => handleOnSelectMenu(MenuEnum.Offers)}
+            onClick={() => handleOnSelectMenu(MenuEnum.OFFERS)}
           >
             <Link to={`/${OFFERS_PATH}`} className="nav-link">
               Ofertas

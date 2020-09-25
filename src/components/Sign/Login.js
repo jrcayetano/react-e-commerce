@@ -50,9 +50,9 @@ const Login = ({ selectedMenu }) => {
     dispatch(SetIsLogged());
     dispatch(SetEmail(userData[0].email));
     dispatch(SetUsername(userData[0].username));
-    if (selectedMenu === MenuEnum.Products) {
+    if (selectedMenu === MenuEnum.PRODUCTS) {
       history.push(`/${PRODUCTS_PATH}`);
-    } else if (MenuEnum.Offers) {
+    } else if (MenuEnum.OFFERS) {
       history.push(`/${OFFERS_PATH}`);
     } else {
       history.push(`/${PRODUCTS_PATH}`);

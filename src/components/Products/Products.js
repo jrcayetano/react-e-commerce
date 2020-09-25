@@ -73,7 +73,7 @@ const Products = ({ isOffer, basketProductsList }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isOffer: state.app.selectedMenu === MenuEnum.Offers ? true : false,
+  isOffer: state.app.selectedMenu === MenuEnum.OFFERS ? true : false,
   basketProductsList: state.basket.productsList,
 });
 
