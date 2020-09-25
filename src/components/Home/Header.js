@@ -69,26 +69,47 @@ const Header = ({ selectedMenu, isLogged }) => {
           <>
             <h4 className="d-block d-lg-none">Mi perfil</h4>
             <ul className="navbar-nav d-block d-lg-none">
-              <li className="nav-item" onClick={handleMenuCollapse}>
+              <li
+                className={classnames({
+                  "nav-item": true,
+                  active: selectedMenu === MenuEnum.EDIT_PROFILE ? true : false,
+                })}
+                onClick={handleMenuCollapse}
+              >
                 <Link
                   to={`${USER_PATH}/${EDIT_PROFILE_PATH}`}
                   className="nav-link"
+                  onClick={() => handleOnSelectMenu(MenuEnum.EDIT_PROFILE)}
                 >
                   Editar perfil
                 </Link>
               </li>
-              <li className="nav-item" onClick={handleMenuCollapse}>
+              <li
+                className={classnames({
+                  "nav-item": true,
+                  active: selectedMenu === MenuEnum.ORDERS ? true : false,
+                })}
+                onClick={handleMenuCollapse}
+              >
                 <Link
                   to={`/${USER_PATH}/${USER_ORDERS_PATH}`}
                   className="nav-link"
+                  onClick={() => handleOnSelectMenu(MenuEnum.ORDERS)}
                 >
                   Pedidos realziados
                 </Link>
               </li>
-              <li className="nav-item" onClick={handleMenuCollapse}>
+              <li
+                className={classnames({
+                  "nav-item": true,
+                  active: selectedMenu === MenuEnum.FAVORITES ? true : false,
+                })}
+                onClick={handleMenuCollapse}
+              >
                 <Link
                   to={`/${USER_PATH}/${USER_FAVORITE_PRODUCTS_PATH}`}
                   className="nav-link"
+                  onClick={() => handleOnSelectMenu(MenuEnum.FAVORITES)}
                 >
                   Productos favoritos
                 </Link>
