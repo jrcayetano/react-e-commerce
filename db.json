@@ -51,6 +51,19 @@
       "zip": "32333",
       "repassword": "Puerta164ever!",
       "id": 4
+    },
+    {
+      "email": "user5@email.com",
+      "password": "$2a$10$XULtzij6z5InYtPnyKKrjeAYCC/QOzgAlWGneD8Zzuey2r5mklmQ.",
+      "username": "user5",
+      "name": "user5",
+      "surname": "user5",
+      "address": "user5",
+      "city": "user5",
+      "state": "Barcelona",
+      "zip": "20000",
+      "repassword": "Puerta164ever!",
+      "id": 5
     }
   ],
   "products": [

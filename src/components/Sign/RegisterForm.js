@@ -65,13 +65,13 @@ const RegisterForm = ({ states, onSubmit }) => {
     >
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputusername">Username</label>
+          <label htmlFor="inputusername">Usuario</label>
           <input
             name="username"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.username,
+              "is-invalid": formik.errors.username && formik.touched.username,
             })}
             id="inputusername"
             required
@@ -90,7 +90,7 @@ const RegisterForm = ({ states, onSubmit }) => {
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.email,
+              "is-invalid": formik.errors.email && formik.touched.email,
             })}
             id="inputEmail"
             placeholder="example@gmail.com"
@@ -105,13 +105,13 @@ const RegisterForm = ({ states, onSubmit }) => {
       </div>
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputName">Name</label>
+          <label htmlFor="inputName">Nombre</label>
           <input
             name="name"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.name,
+              "is-invalid": formik.errors.name && formik.touched.name,
             })}
             id="inputName"
             required
@@ -123,13 +123,13 @@ const RegisterForm = ({ states, onSubmit }) => {
           )}
         </div>
         <div className="form-group col-md-6">
-          <label htmlFor="inputSurname">Surname</label>
+          <label htmlFor="inputSurname">Apellidos</label>
           <input
             name="surname"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.surname,
+              "is-invalid": formik.errors.surname && formik.touched.surname,
             })}
             id="inputSurname"
             required
@@ -142,13 +142,13 @@ const RegisterForm = ({ states, onSubmit }) => {
         </div>
       </div>
       <div className="form-group">
-        <label htmlFor="inputAddress">Address</label>
+        <label htmlFor="inputAddress">Dirección</label>
         <input
           name="address"
           type="text"
           className={classnames({
             "form-control": true,
-            "is-invalid": formik.errors.address,
+            "is-invalid": formik.errors.address && formik.touched.address,
           })}
           id="inputAddress"
           placeholder="1234 Main St"
@@ -163,13 +163,13 @@ const RegisterForm = ({ states, onSubmit }) => {
 
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputCity">City</label>
+          <label htmlFor="inputCity">Ciudad</label>
           <input
             name="city"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.city,
+              "is-invalid": formik.errors.city && formik.touched.city,
             })}
             id="inputCity"
             required
@@ -181,13 +181,13 @@ const RegisterForm = ({ states, onSubmit }) => {
           )}
         </div>
         <div className="form-group col-md-4">
-          <label htmlFor="inputState">State</label>
+          <label htmlFor="inputState">Provincia</label>
           <select
             name="state"
             id="inputState"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.state,
+              "is-invalid": formik.errors.state && formik.touched.state,
             })}
             required
             value={formik.values.state}
@@ -205,13 +205,13 @@ const RegisterForm = ({ states, onSubmit }) => {
           )}
         </div>
         <div className="form-group col-md-2">
-          <label htmlFor="inputZip">Zip</label>
+          <label htmlFor="inputZip">CP</label>
           <input
             name="zip"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.zip,
+              "is-invalid": formik.errors.zip && formik.touched.zip,
             })}
             id="inputZip"
             placeholder="41000"
@@ -233,7 +233,7 @@ const RegisterForm = ({ states, onSubmit }) => {
             type="password"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.password,
+              "is-invalid": formik.errors.password && formik.touched.password,
             })}
             id="inputPassword4"
             required
@@ -252,7 +252,8 @@ const RegisterForm = ({ states, onSubmit }) => {
             type="password"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.repassword,
+              "is-invalid":
+                formik.errors.repassword && formik.touched.repassword,
             })}
             id="inputRepassword"
             required
