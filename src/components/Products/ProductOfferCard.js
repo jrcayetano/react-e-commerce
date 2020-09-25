@@ -40,7 +40,9 @@ const ProductOfferCard = ({ product, onAddToBasket }) => {
 
         <span className="product-card-offers__info__rating">
           <Rating rating={product?.rating} />
-          <span>{product?.reviews.length}</span>
+          <span className="product-card__info__rating__reviews">
+            {product?.reviews.length}
+          </span>
         </span>
       </div>
       <button
