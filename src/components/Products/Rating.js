@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 const Rating = ({ rating }) => {
   const STARS_NUMBER = [1, 2, 3, 4, 5];
@@ -31,6 +32,14 @@ const Rating = ({ rating }) => {
       {decimalPart > 0 && <FontAwesomeIcon icon={faStarHalfAlt} />}
     </>
   );
+};
+
+Rating.propTypes = {
+  rating: PropTypes.number.isRequired,
+};
+
+Rating.defaultProps = {
+  rating: 0,
 };
 
 export default React.memo(Rating);

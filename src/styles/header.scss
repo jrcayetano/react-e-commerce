@@ -20,3 +20,20 @@ li {
 .header__action-bar {
   display: flex;
 }
+
+.brand-image {
+  margin-right: 0.5rem;
+}
+
+.login-button.is-mobile {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+}
+.navbar-collapse.mobile {
+  margin-top: 0.5rem;
+}
+
+.shop-title {
+  margin-top: 1rem;
+}

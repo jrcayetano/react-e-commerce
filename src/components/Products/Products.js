@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import ProductOfferCard from "./ProductOfferCard";
 import ProductFilter from "./ProductFilter";
@@ -45,6 +45,7 @@ const Products = ({ isOffer, basketProductsList }) => {
           <img
             className="img-fluid"
             src="https://images-eu.ssl-images-amazon.com/images/G/30/gaming2020/trafficdrivers/ILM/ILM_650_x_45._CB428851601_.jpg"
+            alt="product"
           />
         </div>
         <div className="products-main">
@@ -72,7 +73,7 @@ const Products = ({ isOffer, basketProductsList }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isOffer: state.app.selectedMenu === MenuEnum.Offers ? true : false,
+  isOffer: state.app.selectedMenu === MenuEnum.OFFERS ? true : false,
   basketProductsList: state.basket.productsList,
 });
 

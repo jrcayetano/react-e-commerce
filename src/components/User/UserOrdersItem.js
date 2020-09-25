@@ -1,5 +1,6 @@
 import React from "react";
 import UserOrderProduct from "./UserOrderProduct";
+import PropTypes from "prop-types";
 
 const UserOrderItem = ({ order }) => {
   return (
@@ -41,7 +42,6 @@ const UserOrderItem = ({ order }) => {
           </div>
         </div>
         <div className="order-item__body__product-list">
-          {/*FALTA componente user order product*/}
           {order?.products.map((product, index) => (
             <UserOrderProduct product={product} key={`product_${index}`} />
           ))}
@@ -49,6 +49,10 @@ const UserOrderItem = ({ order }) => {
       </div>
     </div>
   );
+};
+
+UserOrderItem.propTypes = {
+  order: PropTypes.object.isRequired,
 };
 
 export default React.memo(UserOrderItem);

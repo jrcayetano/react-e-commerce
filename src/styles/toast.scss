@@ -1,0 +1,10 @@
+.toast-wrapper {
+  position: relative;
+}
+.toast-wrapper__container {
+  position: fixed;
+  top: 3rem;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}

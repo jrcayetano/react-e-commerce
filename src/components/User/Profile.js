@@ -4,6 +4,8 @@ import { getStates } from "./../../services/States.service";
 import { connect, useDispatch } from "react-redux";
 import { updateProfile } from "./../../services/User.service";
 import { SetUsername } from "./../../state/actions/UserLoggedActions";
+import { setToast, showToast } from "./../../state/actions/AppActions";
+import { generateToast } from "./../../services/Toast.service";
 
 const Profile = ({ profile }) => {
   const dispatch = useDispatch();
@@ -21,13 +23,20 @@ const Profile = ({ profile }) => {
   }, [profile]);
 
   const handleSubmit = (userProfile) => {
-    console.log("sbmit update");
-    updateProfile(userProfile, userId, password).then((response) => {
-      if (response && response.data) {
-        console.log("user updated");
-        dispatch(SetUsername(response.data.username));
-      }
-    });
+    updateProfile(userProfile, userId, password)
+      .then((response) => {
+        if (response && response.data) {
+          toast("Usuario actualizado correctamente");
+          dispatch(SetUsername(response.data.username));
+        }
+      })
+      .catch((error) => toast(error.response.data, true));
+  };
+
+  const toast = (message, isError = false) => {
+    const toast = generateToast(message, isError);
+    dispatch(setToast(toast));
+    dispatch(showToast(true));
   };
 
   return (

@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Rating from "./Rating";
+import PropTypes from "prop-types";
 
 const ProductFilter = ({ onFilterChange }) => {
   const [isOpened, setIsOpened] = useState(false);
@@ -187,7 +188,7 @@ const ProductFilter = ({ onFilterChange }) => {
           </div>
         </form>
       </div>
-      <div class="filter-button-wrapper">
+      <div className="filter-button-wrapper">
         <button
           type="button"
           className="btn btn-light d-block d-lg-none"
@@ -198,6 +199,10 @@ const ProductFilter = ({ onFilterChange }) => {
       </div>
     </div>
   );
+};
+
+ProductFilter.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProductFilter);

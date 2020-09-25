@@ -1,5 +1,6 @@
 import React from "react";
 import Rating from "./Rating";
+import PropTypes from "prop-types";
 
 const ProductDetailReview = ({ review }) => {
   const imagePath = process.env.PUBLIC_URL + "/assets/";
@@ -9,6 +10,7 @@ const ProductDetailReview = ({ review }) => {
         <img
           className="product-detail-review__user-information__image"
           src={`${imagePath}/${review?.user?.image}`}
+          alt="user"
         />
         <span className="product-detail-review__user-information__name">
           {review?.user?.name}
@@ -30,6 +32,10 @@ const ProductDetailReview = ({ review }) => {
       </div>
     </div>
   );
+};
+
+ProductDetailReview.propTypes = {
+  review: PropTypes.object.isRequired,
 };
 
 export default React.memo(ProductDetailReview);

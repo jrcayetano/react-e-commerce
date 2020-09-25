@@ -1,9 +1,11 @@
 import { AppActionsType } from "../actions/AppActions";
 
 export const initialState = {
-  selectedMenu: "",
+  selectedMenu: "products",
   token: "",
   isFirstLoadApp: true,
+  showToast: false,
+  toasts: [],
 };
 
 export default function appReducer(state = initialState, action) {
@@ -24,6 +26,24 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         isFirstLoadApp: action.payload,
+      };
+    }
+    case AppActionsType.SET_TOAST: {
+      return {
+        ...state,
+        toasts: [...state.toasts, action.payload],
+      };
+    }
+    case AppActionsType.CLEAR_TOAST: {
+      return {
+        ...state,
+        toasts: [],
+      };
+    }
+    case AppActionsType.SHOW_TOAST: {
+      return {
+        ...state,
+        showToast: action.payload,
       };
     }
     default:

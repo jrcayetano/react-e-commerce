@@ -1,6 +1,10 @@
 .logged-user {
   display: inline-block;
   margin-right: 1rem;
+  &.is-mobile {
+    position: absolute;
+    right: 0;
+  }
 }
 
 .loggued-user__options {

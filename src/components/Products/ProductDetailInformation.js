@@ -1,11 +1,12 @@
 import React from "react";
 import Rating from "./Rating";
+import PropTypes from "prop-types";
 
 const ProductDetailInformation = ({ product }) => {
   return (
     <div className="product-detail-information">
       <div className="product-detail-information__image">
-        <img className="img-fluid" src={product?.image} />
+        <img className="img-fluid" src={product?.image} alt="product" />
       </div>
       <div className="product-detail-information__data">
         <div className="product-detail-information____data__name">
@@ -27,6 +28,10 @@ const ProductDetailInformation = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductDetailInformation.propTypes = {
+  product: PropTypes.object,
 };
 
 export default React.memo(ProductDetailInformation);

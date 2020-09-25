@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import {
   DeleteProduct,
   IncremenProductQuantity,
 } from "./../../state/actions/BasketActions";
+import PropTypes from "prop-types";
 
 const BasketListProducts = ({ product }) => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
   const quantitiesOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const handleOndDeleteClick = () => {
     dispatch(DeleteProduct(product.id));
@@ -48,7 +48,6 @@ const BasketListProducts = ({ product }) => {
             id="quantityInput"
             value={product.quantity}
             onChange={(event) => {
-              console.log(event);
               handletChangeQuantity(event.target.value);
             }}
           >
@@ -65,6 +64,10 @@ const BasketListProducts = ({ product }) => {
       </div>
     </>
   );
+};
+
+BasketListProducts.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default React.memo(BasketListProducts);

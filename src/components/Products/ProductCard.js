@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PRODUCTS_PATH } from "./../../consts/paths";
 import classnames from "classnames";
 import Rating from "./Rating";
+import PropTypes from "prop-types";
 
 const ProductCard = ({ product }) => {
   return (
@@ -24,6 +25,7 @@ const ProductCard = ({ product }) => {
           <img
             src={product.src || product.image}
             className="img-fluid d-block"
+            alt="product"
           />
         </div>
         <div className="product-card__info">
@@ -33,7 +35,9 @@ const ProductCard = ({ product }) => {
           </span>
           <span className="product-card__info__rating">
             <Rating rating={product?.rating} />
-            <span>{product?.reviews.length}</span>
+            <span className="product-card__info__rating__reviews">
+              {product?.reviews.length}
+            </span>
           </span>
           <span className="product-card__info__price">
             {product.price}&nbsp;€
@@ -45,6 +49,10 @@ const ProductCard = ({ product }) => {
       </Link>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default React.memo(ProductCard);

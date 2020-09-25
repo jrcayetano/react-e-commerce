@@ -11,12 +11,20 @@ import {
 } from "./../../consts/paths";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { setMenu } from "./../../state/actions/AppActions";
+import { MenuEnum } from "./../../consts/MenuEnum";
+import { useDispatch } from "react-redux";
 
 const LoggedUser = ({ username, isLogged }) => {
   let history = useHistory();
+  const dispatch = useDispatch();
 
   const handleLoginClick = () => {
     history.push(`/${LOGIN_PATH}`);
+  };
+
+  const handleSelectMenu = (menu) => {
+    dispatch(setMenu(menu));
   };
 
   if (isLogged) {
@@ -27,15 +35,24 @@ const LoggedUser = ({ username, isLogged }) => {
           title={username}
           className="logged-user__options"
         >
-          <Dropdown.Item as={Link} to={`${USER_PATH}/${EDIT_PROFILE_PATH}`}>
+          <Dropdown.Item
+            as={Link}
+            to={`/${USER_PATH}/${EDIT_PROFILE_PATH}`}
+            onClick={() => handleSelectMenu(MenuEnum.EDIT_PROFILE)}
+          >
             Editar perfil
           </Dropdown.Item>
-          <Dropdown.Item as={Link} to={`/${USER_PATH}/${USER_ORDERS_PATH}`}>
+          <Dropdown.Item
+            as={Link}
+            to={`/${USER_PATH}/${USER_ORDERS_PATH}`}
+            onClick={() => handleSelectMenu(MenuEnum.ORDERS)}
+          >
             Pedidos realizados
           </Dropdown.Item>
           <Dropdown.Item
             as={Link}
             to={`/${USER_PATH}/${USER_FAVORITE_PRODUCTS_PATH}`}
+            onClick={() => handleSelectMenu(MenuEnum.FAVORITES)}
           >
             Pedidos favoritos
           </Dropdown.Item>

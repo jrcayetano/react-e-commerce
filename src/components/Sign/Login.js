@@ -2,42 +2,61 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { login, getUserByEmail } from "./../../services/Login.service";
 import { useHistory } from "react-router";
-import { PRODUCTS_PATH, REGISTER_PATH } from "./../../consts/paths";
-import { useDispatch } from "react-redux";
+import {
+  PRODUCTS_PATH,
+  REGISTER_PATH,
+  OFFERS_PATH,
+} from "./../../consts/paths";
+import { useDispatch, connect } from "react-redux";
 import {
   SetProfile,
   SetIsLogged,
   SetEmail,
   SetUsername,
 } from "./../../state/actions/UserLoggedActions";
-import { SET_TOKEN } from "./../../state/actions/AppActions";
+import { setToken } from "./../../state/actions/AppActions";
 import { Link } from "react-router-dom";
+import { setToast, showToast } from "./../../state/actions/AppActions";
+import { generateToast } from "./../../services/Toast.service";
+import { MenuEnum } from "../../consts/MenuEnum";
 
-const Login = () => {
+const Login = ({ selectedMenu }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const handleSubmit = (formValues) => {
-    login(formValues).then((response) =>
-      getUserLoggedData(response.data, formValues)
-    );
+    login(formValues)
+      .then((response) => getUserLoggedData(response.data, formValues))
+      .catch((error) => toast(error.response.data, true));
   };
 
   const getUserLoggedData = (response, formValues) => {
     if (response && response.accessToken) {
-      getUserByEmail(formValues.email).then((userData) =>
-        saveLoggedUserDataInStore(response, userData.data)
-      );
+      getUserByEmail(formValues.email)
+        .then((userData) => saveLoggedUserDataInStore(response, userData.data))
+        .catch((error) => toast(error.response.data, true));
     }
+  };
+
+  const toast = (message, isError = false) => {
+    const toast = generateToast(message, isError);
+    dispatch(setToast(toast));
+    dispatch(showToast(true));
   };
 
   const saveLoggedUserDataInStore = (response, userData) => {
     dispatch(SetProfile(userData[0]));
-    dispatch(SET_TOKEN(response.accessToken));
+    dispatch(setToken(response.accessToken));
     dispatch(SetIsLogged());
     dispatch(SetEmail(userData[0].email));
     dispatch(SetUsername(userData[0].username));
-    history.push(`/${PRODUCTS_PATH}`);
+    if (selectedMenu === MenuEnum.PRODUCTS) {
+      history.push(`/${PRODUCTS_PATH}`);
+    } else if (MenuEnum.OFFERS) {
+      history.push(`/${OFFERS_PATH}`);
+    } else {
+      history.push(`/${PRODUCTS_PATH}`);
+    }
   };
 
   return (
@@ -58,4 +77,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  selectedMenu: state.app.selectedMenu,
+});
+
+export default connect(mapStateToProps)(React.memo(Login));

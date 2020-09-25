@@ -9,6 +9,8 @@ import {
 } from "./../../state/actions/BasketActions";
 import { AddFavoriteProduct } from "./../../state/actions/UserLoggedActions";
 import { connect, useDispatch } from "react-redux";
+import { setToast, showToast } from "./../../state/actions/AppActions";
+import { generateToast } from "./../../services/Toast.service";
 
 const ProductDetail = ({ basketProductsList }) => {
   const dispatch = useDispatch();
@@ -38,7 +40,14 @@ const ProductDetail = ({ basketProductsList }) => {
   };
 
   const haddleAddToFavorite = () => {
+    toast("Producto agregado a favoritos");
     dispatch(AddFavoriteProduct(product));
+  };
+
+  const toast = (message, isError = false) => {
+    const toast = generateToast(message, isError);
+    dispatch(setToast(toast));
+    dispatch(showToast(true));
   };
 
   return (

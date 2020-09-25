@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   VALID_ZIP_PATTERN,
   VALID_EMAIL_PATTERN,
   VALID_PASSWORD_PATTERN,
 } from "./../../consts/patterns";
 import classnames from "classnames";
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import PropTypes from "prop-types";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Required"),
@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
     .min(8, "Minimun length required 8")
     .matches(
       VALID_PASSWORD_PATTERN,
-      "Invalid formar, must containe at least lowercase, uppercase,number, special character and a minium length of 8"
+      "Invalid format, must contain at least lowercase, uppercase,number, special character and a minium length of 8"
     ),
   repassword: Yup.string()
     .required("Required")
@@ -35,7 +35,6 @@ const validationSchema = Yup.object().shape({
 });
 
 const ProfileForm = ({ states, profile, onSubmit }) => {
-  console.log(profile);
   const [submitted, setSubmitted] = useState(false);
 
   const formik = useFormik({
@@ -58,10 +57,6 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
     },
   });
 
-  useEffect(() => {
-    console.log({ formik });
-  });
-
   return (
     <form
       className="login-form register-form"
@@ -70,13 +65,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
     >
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputusername">Username</label>
+          <label htmlFor="inputusername">Usuario</label>
           <input
             name="username"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.username,
+              "is-invalid": formik.errors.username && formik.touched.username,
             })}
             id="inputusername"
             required
@@ -95,7 +90,7 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.email,
+              "is-invalid": formik.errors.email && formik.touched.email,
             })}
             id="inputEmail"
             placeholder="example@gmail.com"
@@ -111,13 +106,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
       </div>
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputName">Name</label>
+          <label htmlFor="inputName">Nombre</label>
           <input
             name="name"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.name,
+              "is-invalid": formik.errors.name && formik.touched.name,
             })}
             id="inputName"
             required
@@ -129,13 +124,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
           )}
         </div>
         <div className="form-group col-md-6">
-          <label htmlFor="inputSurname">Surname</label>
+          <label htmlFor="inputSurname">Apellidos</label>
           <input
             name="surname"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.surname,
+              "is-invalid": formik.errors.surname && formik.touched.surname,
             })}
             id="inputSurname"
             required
@@ -148,13 +143,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
         </div>
       </div>
       <div className="form-group">
-        <label htmlFor="inputAddress">Address</label>
+        <label htmlFor="inputAddress">Dirección</label>
         <input
           name="address"
           type="text"
           className={classnames({
             "form-control": true,
-            "is-invalid": formik.errors.address,
+            "is-invalid": formik.errors.address && formik.touched.address,
           })}
           id="inputAddress"
           placeholder="1234 Main St"
@@ -169,13 +164,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
 
       <div className="form-row">
         <div className="form-group col-md-6">
-          <label htmlFor="inputCity">City</label>
+          <label htmlFor="inputCity">Ciudad</label>
           <input
             name="city"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.city,
+              "is-invalid": formik.errors.city && formik.touched.city,
             })}
             id="inputCity"
             required
@@ -187,13 +182,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
           )}
         </div>
         <div className="form-group col-md-4">
-          <label htmlFor="inputState">State</label>
+          <label htmlFor="inputState">Provincia</label>
           <select
             name="state"
             id="inputState"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.state,
+              "is-invalid": formik.errors.state && formik.touched.state,
             })}
             required
             value={formik.values.state}
@@ -211,13 +206,13 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
           )}
         </div>
         <div className="form-group col-md-2">
-          <label htmlFor="inputZip">Zip</label>
+          <label htmlFor="inputZip">CP</label>
           <input
             name="zip"
             type="text"
             className={classnames({
               "form-control": true,
-              "is-invalid": formik.errors.zip,
+              "is-invalid": formik.errors.zip && formik.touched.zip,
             })}
             id="inputZip"
             placeholder="41000"
@@ -236,6 +231,12 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
       </button>
     </form>
   );
+};
+
+ProfileForm.propTypes = {
+  states: PropTypes.array.isRequired,
+  profile: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProfileForm);

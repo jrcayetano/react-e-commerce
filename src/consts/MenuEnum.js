@@ -1,4 +1,7 @@
 export const MenuEnum = {
-  Products: "products",
-  Offers: "offers",
+  PRODUCTS: "products",
+  OFFERS: "offers",
+  EDIT_PROFILE: "editProfile",
+  ORDERS: "orders",
+  FAVORITES: "favorites",
 };

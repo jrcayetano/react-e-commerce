@@ -2,6 +2,7 @@ import React from "react";
 import { PRODUCTS_PATH } from "./../../consts/paths";
 import Rating from "./Rating";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ProductOfferCard = ({ product, onAddToBasket }) => {
   return (
@@ -11,6 +12,7 @@ const ProductOfferCard = ({ product, onAddToBasket }) => {
           <img
             src={product.src || product.image}
             className="img-fluid d-block"
+            alt="product"
           />
         </div>
       </Link>
@@ -38,7 +40,9 @@ const ProductOfferCard = ({ product, onAddToBasket }) => {
 
         <span className="product-card-offers__info__rating">
           <Rating rating={product?.rating} />
-          <span>{product?.reviews.length}</span>
+          <span className="product-card__info__rating__reviews">
+            {product?.reviews.length}
+          </span>
         </span>
       </div>
       <button
@@ -50,6 +54,11 @@ const ProductOfferCard = ({ product, onAddToBasket }) => {
       </button>
     </div>
   );
+};
+
+ProductOfferCard.propTypes = {
+  product: PropTypes.object.isRequired,
+  onAddToBasket: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProductOfferCard);
