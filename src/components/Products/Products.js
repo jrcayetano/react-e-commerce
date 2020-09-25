@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import ProductOfferCard from "./ProductOfferCard";
 import ProductFilter from "./ProductFilter";

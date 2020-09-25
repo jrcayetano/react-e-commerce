@@ -2,8 +2,12 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { login, getUserByEmail } from "./../../services/Login.service";
 import { useHistory } from "react-router";
-import { PRODUCTS_PATH, REGISTER_PATH } from "./../../consts/paths";
-import { useDispatch } from "react-redux";
+import {
+  PRODUCTS_PATH,
+  REGISTER_PATH,
+  OFFERS_PATH,
+} from "./../../consts/paths";
+import { useDispatch, connect } from "react-redux";
 import {
   SetProfile,
   SetIsLogged,
@@ -14,8 +18,9 @@ import { SET_TOKEN } from "./../../state/actions/AppActions";
 import { Link } from "react-router-dom";
 import { setToast, showToast } from "./../../state/actions/AppActions";
 import { generateToast } from "./../../services/Toast.service";
+import { MenuEnum } from "../../consts/MenuEnum";
 
-const Login = () => {
+const Login = ({ selectedMenu }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -45,7 +50,13 @@ const Login = () => {
     dispatch(SetIsLogged());
     dispatch(SetEmail(userData[0].email));
     dispatch(SetUsername(userData[0].username));
-    history.push(`/${PRODUCTS_PATH}`);
+    if (selectedMenu === MenuEnum.Products) {
+      history.push(`/${PRODUCTS_PATH}`);
+    } else if (MenuEnum.Offers) {
+      history.push(`/${OFFERS_PATH}`);
+    } else {
+      history.push(`/${PRODUCTS_PATH}`);
+    }
   };
 
   return (
@@ -66,4 +77,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  selectedMenu: state.app.selectedMenu,
+});
+
+export default connect(mapStateToProps)(React.memo(Login));

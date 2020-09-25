@@ -21,6 +21,7 @@ const Header = ({ selectedMenu }) => {
   const dispatch = useDispatch();
 
   const handleMenuCollapse = () => setIsMenuCollapse(!isMenuCollapse);
+
   const handleOnSelectMenu = (menu) => {
     dispatch(SET_MENU(menu));
     handleMenuCollapse();

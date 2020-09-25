@@ -1,7 +1,7 @@
 import { AppActionsType } from "../actions/AppActions";
 
 export const initialState = {
-  selectedMenu: "",
+  selectedMenu: "products",
   token: "",
   isFirstLoadApp: true,
   showToast: false,
