@@ -12,28 +12,11 @@ import UserFavoriteProduct from "./../User/UserFavoriteProduct";
 import Login from "./../Sign/Login";
 import Register from "./../Sign/Register";
 import Profile from "./../User/Profile";
-import ToastEcommerce from "./../General/Toast";
-
-import { useDispatch } from "react-redux";
-import { setToast, showToast } from "./../../state/actions/AppActions";
-import { generateToast } from "./../../services/Toast.service";
 import ToastWrapper from "../General/ToastWrapper";
 
 const Home = ({ isBasketOpened }) => {
-  const dispatch = useDispatch();
-
   return (
     <React.Fragment>
-      {/* <button
-        onClick={() => {
-          const toast = generateToast(
-            "El usuario se ha actualizado correctamente",
-            true
-          );
-          dispatch(setToast(toast));
-          dispatch(showToast(true));
-        }}
-      ></button> */}
       <ToastWrapper />
       <Header />
       <div className="home">

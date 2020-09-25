@@ -29,6 +29,7 @@ const Header = ({ selectedMenu }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a
+        href="."
         className="navbar-brand"
         onClick={() => handleOnSelectMenu("productsMenu")}
       >

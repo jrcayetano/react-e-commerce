@@ -11,6 +11,7 @@ const ProductOfferCard = ({ product, onAddToBasket }) => {
           <img
             src={product.src || product.image}
             className="img-fluid d-block"
+            alt="product"
           />
         </div>
       </Link>

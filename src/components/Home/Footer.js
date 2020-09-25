@@ -43,27 +43,27 @@ const Footer = () => {
         <div className="container footer-wrap">
           <ul>
             <li>
-              <a href="#" className="footer-wrap__link--white">
+              <a href="." className="footer-wrap__link--white">
                 Condiciones de Uso y de venta
               </a>
             </li>
             <li>
-              <a href="#" className="footer-wrap__link--white">
+              <a href="." className="footer-wrap__link--white">
                 Aviso de privacidad
               </a>
             </li>
             <li>
-              <a href="#" className="footer-wrap__link--white">
+              <a href="." className="footer-wrap__link--white">
                 Área legal
               </a>
             </li>
             <li>
-              <a href="#" className="footer-wrap__link--white">
+              <a href="." className="footer-wrap__link--white">
                 Cookies
               </a>
             </li>
             <li>
-              <a href="#" className="footer-wrap__link--white">
+              <a href="." className="footer-wrap__link--white">
                 Publicidad basada en intereses
               </a>
             </li>

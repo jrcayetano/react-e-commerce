@@ -22,7 +22,7 @@ const FavoriteProduct = ({ product }) => {
     <div className="favorite-product">
       <div className="favorite-product__info">
         <div className="favorite-product__info__image">
-          <img src={product?.image} />
+          <img src={product?.image} alt="favorite product" />
           <div className="favorite-product__actions__date d-block d-sm-none">
             Articulo añadido {product?.addedDate}
           </div>

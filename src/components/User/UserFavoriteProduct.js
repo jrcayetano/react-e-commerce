@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import FavoriteProductList from "./FavoriteProductList";
 import { connect, useDispatch } from "react-redux";
 import { getFavorites } from "./../../services/User.service";

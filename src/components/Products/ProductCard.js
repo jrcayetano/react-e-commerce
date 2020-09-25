@@ -24,6 +24,7 @@ const ProductCard = ({ product }) => {
           <img
             src={product.src || product.image}
             className="img-fluid d-block"
+            alt="product"
           />
         </div>
         <div className="product-card__info">

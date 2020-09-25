@@ -45,6 +45,7 @@ const Products = ({ isOffer, basketProductsList }) => {
           <img
             className="img-fluid"
             src="https://images-eu.ssl-images-amazon.com/images/G/30/gaming2020/trafficdrivers/ILM/ILM_650_x_45._CB428851601_.jpg"
+            alt="product"
           />
         </div>
         <div className="products-main">

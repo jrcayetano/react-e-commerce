@@ -21,7 +21,6 @@ const generateFilterSearch = (
   isOffer = false
 ) => {
   const qS = searchTerm;
-  const ratingS = rating;
 
   let params = new URLSearchParams();
   const priceLabelParam = isOffer ? "priceOffer" : "price";

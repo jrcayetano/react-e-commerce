@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import {
   DeleteProduct,
@@ -7,7 +7,6 @@ import {
 
 const BasketListProducts = ({ product }) => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
   const quantitiesOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const handleOndDeleteClick = () => {
     dispatch(DeleteProduct(product.id));

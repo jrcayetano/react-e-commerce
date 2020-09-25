@@ -3,21 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import thunk from "redux-thunk";
+
 import rootReducer from "./state/reducers";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { createStore, applyMiddleware } from "redux";
+
+import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { persistStore, persistReducer } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
+
 import storageSession from "redux-persist/lib/storage/session";
 
-/* const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-); */
 const persistConfig = {
   key: "root",
   storage: storageSession,

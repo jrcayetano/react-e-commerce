@@ -9,6 +9,7 @@ const ProductDetailReview = ({ review }) => {
         <img
           className="product-detail-review__user-information__image"
           src={`${imagePath}/${review?.user?.image}`}
+          alt="user"
         />
         <span className="product-detail-review__user-information__name">
           {review?.user?.name}

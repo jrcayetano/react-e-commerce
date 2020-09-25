@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Toast from "react-bootstrap/Toast";
-import { connect } from "react-redux";
 import { clearToast, showToast } from "./../../state/actions/AppActions";
 import { useDispatch } from "react-redux";
 import classnames from "classnames";
