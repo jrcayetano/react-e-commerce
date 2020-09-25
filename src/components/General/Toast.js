@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 
 const ToastEcommerce = ({ title, message, show, isError }) => {
   const dispatch = useDispatch();
+
   return (
     <div
       className={classnames({ "bg-success": !isError, "bg-danger": isError })}

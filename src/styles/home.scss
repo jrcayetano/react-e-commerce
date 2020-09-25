@@ -12,10 +12,18 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .main-content {
+    &.basket-opened {
+      grid-template-columns: auto;
+    }
+  }
+}
+
 @media (max-width: 992px) {
   .main-content {
     &.basket-opened {
-      grid-template-columns: auto 30%;
+      grid-template-columns: auto 45%;
     }
   }
 }

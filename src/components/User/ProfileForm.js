@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   VALID_ZIP_PATTERN,
   VALID_EMAIL_PATTERN,
@@ -27,7 +27,7 @@ const validationSchema = Yup.object().shape({
     .min(8, "Minimun length required 8")
     .matches(
       VALID_PASSWORD_PATTERN,
-      "Invalid formar, must containe at least lowercase, uppercase,number, special character and a minium length of 8"
+      "Invalid format, must contain at least lowercase, uppercase,number, special character and a minium length of 8"
     ),
   repassword: Yup.string()
     .required("Required")

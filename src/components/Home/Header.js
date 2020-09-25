@@ -77,7 +77,7 @@ const Header = ({ selectedMenu, isLogged }) => {
                 onClick={handleMenuCollapse}
               >
                 <Link
-                  to={`${USER_PATH}/${EDIT_PROFILE_PATH}`}
+                  to={`/${USER_PATH}/${EDIT_PROFILE_PATH}`}
                   className="nav-link"
                   onClick={() => handleOnSelectMenu(MenuEnum.EDIT_PROFILE)}
                 >
@@ -96,7 +96,7 @@ const Header = ({ selectedMenu, isLogged }) => {
                   className="nav-link"
                   onClick={() => handleOnSelectMenu(MenuEnum.ORDERS)}
                 >
-                  Pedidos realziados
+                  Pedidos realizados
                 </Link>
               </li>
               <li
@@ -125,7 +125,7 @@ const Header = ({ selectedMenu, isLogged }) => {
             <LoggedUser mobile={true} />
           </div>
         )}
-        <h4 className="d-block d-lg-none">Tienda</h4>
+        <h4 className="d-block d-lg-none shop-title">Tienda</h4>
         <ul className="navbar-nav">
           <li
             className={classnames({

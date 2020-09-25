@@ -6,6 +6,7 @@ import { BasketToggle } from "./../../state/actions/BasketActions";
 
 const Basket = ({ productList }) => {
   const dispatch = useDispatch();
+
   const handleBasketClick = () => {
     dispatch(BasketToggle());
   };

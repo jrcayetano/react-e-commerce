@@ -42,7 +42,6 @@ const UserOrderItem = ({ order }) => {
           </div>
         </div>
         <div className="order-item__body__product-list">
-          {/*FALTA componente user order product*/}
           {order?.products.map((product, index) => (
             <UserOrderProduct product={product} key={`product_${index}`} />
           ))}
