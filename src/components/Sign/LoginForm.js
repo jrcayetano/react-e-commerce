@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 const LoginForm = ({ onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -73,6 +74,10 @@ const LoginForm = ({ onSubmit }) => {
       </button>
     </form>
   );
+};
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default React.memo(LoginForm);

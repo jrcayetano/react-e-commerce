@@ -5,9 +5,9 @@ import {
   VALID_PASSWORD_PATTERN,
 } from "./../../consts/patterns";
 import classnames from "classnames";
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import PropTypes from "prop-types";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Required"),
@@ -231,6 +231,12 @@ const ProfileForm = ({ states, profile, onSubmit }) => {
       </button>
     </form>
   );
+};
+
+ProfileForm.propTypes = {
+  states: PropTypes.array.isRequired,
+  profile: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProfileForm);

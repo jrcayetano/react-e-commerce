@@ -2,6 +2,7 @@ import React from "react";
 import { PRODUCTS_PATH } from "./../../consts/paths";
 import Rating from "./Rating";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ProductOfferCard = ({ product, onAddToBasket }) => {
   return (
@@ -51,6 +52,11 @@ const ProductOfferCard = ({ product, onAddToBasket }) => {
       </button>
     </div>
   );
+};
+
+ProductOfferCard.propTypes = {
+  product: PropTypes.object.isRequired,
+  onAddToBasket: PropTypes.func.isRequired,
 };
 
 export default React.memo(ProductOfferCard);

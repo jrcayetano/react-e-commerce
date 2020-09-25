@@ -18,8 +18,8 @@ const BasketListSubtotal = ({ subtotal, onBuy }) => {
   );
 };
 
-BasketListSubtotal.prototype = {
-  subtotal: PropTypes.string.isRequired,
+BasketListSubtotal.propTypes = {
+  subtotal: PropTypes.number.isRequired,
   onBuy: PropTypes.func.isRequired,
 };
 

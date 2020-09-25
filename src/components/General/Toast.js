@@ -3,6 +3,7 @@ import Toast from "react-bootstrap/Toast";
 import { clearToast, showToast } from "./../../state/actions/AppActions";
 import { useDispatch } from "react-redux";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 const ToastEcommerce = ({ title, message, show, isError }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,13 @@ const ToastEcommerce = ({ title, message, show, isError }) => {
       </Toast>
     </div>
   );
+};
+
+ToastEcommerce.propTypes = {
+  title: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  show: PropTypes.bool,
+  isError: PropTypes.bool,
 };
 
 export default React.memo(ToastEcommerce);

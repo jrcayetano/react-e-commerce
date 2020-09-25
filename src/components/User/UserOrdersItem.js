@@ -1,5 +1,6 @@
 import React from "react";
 import UserOrderProduct from "./UserOrderProduct";
+import PropTypes from "prop-types";
 
 const UserOrderItem = ({ order }) => {
   return (
@@ -49,6 +50,10 @@ const UserOrderItem = ({ order }) => {
       </div>
     </div>
   );
+};
+
+UserOrderItem.propTypes = {
+  order: PropTypes.object.isRequired,
 };
 
 export default React.memo(UserOrderItem);

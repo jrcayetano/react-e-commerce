@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PRODUCTS_PATH } from "./../../consts/paths";
 import classnames from "classnames";
 import Rating from "./Rating";
+import PropTypes from "prop-types";
 
 const ProductCard = ({ product }) => {
   return (
@@ -46,6 +47,10 @@ const ProductCard = ({ product }) => {
       </Link>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default React.memo(ProductCard);

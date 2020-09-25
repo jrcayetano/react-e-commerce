@@ -4,6 +4,7 @@ import {
   DeleteProduct,
   IncremenProductQuantity,
 } from "./../../state/actions/BasketActions";
+import PropTypes from "prop-types";
 
 const BasketListProducts = ({ product }) => {
   const dispatch = useDispatch();
@@ -63,6 +64,10 @@ const BasketListProducts = ({ product }) => {
       </div>
     </>
   );
+};
+
+BasketListProducts.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default React.memo(BasketListProducts);

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { PRODUCTS_PATH } from "./../../consts/paths";
+import PropTypes from "prop-types";
 
 const UserOrderProduct = ({ product }) => {
   return (
@@ -24,6 +25,10 @@ const UserOrderProduct = ({ product }) => {
       </div>
     </div>
   );
+};
+
+UserOrderProduct.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default UserOrderProduct;

@@ -1,6 +1,7 @@
 import * as Yup from "yup";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
+import PropTypes from "prop-types";
 
 import classnames from "classnames";
 import {
@@ -271,6 +272,11 @@ const RegisterForm = ({ states, onSubmit }) => {
       </button>
     </form>
   );
+};
+
+RegisterForm.propTypes = {
+  states: PropTypes.array.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default React.memo(RegisterForm);

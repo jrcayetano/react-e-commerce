@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FavoriteProduct from "./FavoriteProduct";
+import PropTypes from "prop-types";
 
 const FavoriteProductList = ({ productList }) => {
   const [filterProduct, setFilterProduct] = useState([]);
@@ -51,6 +52,10 @@ const FavoriteProductList = ({ productList }) => {
       </div>
     </div>
   );
+};
+
+FavoriteProductList.propTypes = {
+  productList: PropTypes.array.isRequired,
 };
 
 export default React.memo(FavoriteProductList);

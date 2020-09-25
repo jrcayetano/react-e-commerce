@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { AddProduct } from "./../../state/actions/BasketActions";
 import { DeleteFavoriteProduct } from "./../../state/actions/UserLoggedActions";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
+
 const FavoriteProduct = ({ product }) => {
   const dispatch = useDispatch();
   const productPath = `/${PRODUCTS_PATH}/${product.id}`;
@@ -62,6 +64,10 @@ const FavoriteProduct = ({ product }) => {
       </div>
     </div>
   );
+};
+
+FavoriteProduct.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default React.memo(FavoriteProduct);

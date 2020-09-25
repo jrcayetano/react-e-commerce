@@ -1,5 +1,6 @@
 import React from "react";
 import Rating from "./Rating";
+import PropTypes from "prop-types";
 
 const ProductDetailInformation = ({ product }) => {
   return (
@@ -27,6 +28,10 @@ const ProductDetailInformation = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductDetailInformation.propTypes = {
+  product: PropTypes.object,
 };
 
 export default React.memo(ProductDetailInformation);
