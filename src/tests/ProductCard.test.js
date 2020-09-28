@@ -13,7 +13,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 afterEach(cleanup);
 
-describe("Product card component", () => {
+describ("Product card - props", () => {});
+
+describe("Product card - component rendering", () => {
   test("component render", () => {
     const wrapper = shallow(<ProductCard product={mockProduct} />);
     expect(wrapper.exists()).toBe(true);
