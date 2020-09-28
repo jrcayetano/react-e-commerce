@@ -17,7 +17,7 @@ export const setToken = (token) => ({
   payload: token,
 });
 
-export const setFirstload_app = (isFIrstLoad) => ({
+export const setFirstload = (isFIrstLoad) => ({
   type: AppActionsType.SET_FIRSTLOAD_APP,
   payload: isFIrstLoad,
 });

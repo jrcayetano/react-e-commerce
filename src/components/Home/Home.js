@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Route } from "react-router-dom";
 import Products from "./../Products";
 import BasketList from "./BasketList";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import ProductDetail from "./../Products/ProductDetail";
 import UserOrders from "./../User/UserOrders";
 import UserFavoriteProduct from "./../User/UserFavoriteProduct";
@@ -14,8 +14,18 @@ import Register from "./../Sign/Register";
 import Profile from "./../User/Profile";
 import ToastWrapper from "../General/ToastWrapper";
 import ProtectedRoute from "../General/ProtectedRoute";
+import { useHistory } from "react-router";
+import { setFirstload } from "./../../state/actions/AppActions";
 
-const Home = ({ isBasketOpened, isLogged }) => {
+const Home = ({ isBasketOpened, isLogged, isFirstLoadApp, selectedMenu }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (isFirstLoadApp && selectedMenu === "products") {
+      dispatch(setFirstload(false));
+      history.push("/products");
+    }
+  });
   return (
     <React.Fragment>
       <ToastWrapper />
@@ -59,6 +69,8 @@ const Home = ({ isBasketOpened, isLogged }) => {
 const mapStateToProps = (state) => ({
   isBasketOpened: state.basket.opened,
   isLogged: state.userLogged.isLogged,
+  isFirstLoadApp: state.app.isFirstLoadApp,
+  selectedMenu: state.app.selectedMenu,
 });
 
 export default connect(mapStateToProps)(React.memo(Home));
