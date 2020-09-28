@@ -1,5 +1,19 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "user1@email.com",
+      "password": "$2a$10$6nRCh2e9ukVr0e3eRKlOsuXDwNaTBxV7yfMUrfybll13/db375K0u",
+      "username": "user1",
+      "name": "user1",
+      "surname": "user1",
+      "address": "user1",
+      "city": "user1",
+      "state": "Bizkaia",
+      "zip": "11111",
+      "repassword": "Puerta164ever!",
+      "id": 1
+    }
+  ],
   "products": [
     {
       "id": 1,

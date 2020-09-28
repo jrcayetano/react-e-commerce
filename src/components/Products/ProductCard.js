@@ -39,9 +39,7 @@ const ProductCard = ({ product }) => {
               {product?.reviews.length}
             </span>
           </span>
-          <span className="product-card__info__price">
-            {product.price}&nbsp;€
-          </span>
+          <span className="product-card__info__price">{product.price} €</span>
           <span className="product-card__info__delivery">
             Recíbelo el <strong>{product.delivery}</strong>
           </span>
